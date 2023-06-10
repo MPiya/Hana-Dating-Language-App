@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<style>
+    /* Custom CSS for home page */
+    .hero-section {
+        background-color: #f8f8f8;
+        padding: 2rem;
+        text-align: center;
+    }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section .highlight {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .hero-section .cta-button {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+            .hero-section .cta-button:hover {
+                background-color: #c0392b;
+            }
+
+        .hero-section .image-container {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section img {
+            max-width: 70%;
+            margin-left: 15%;
+        }
+</style>
+
+<div class="hero-section">
+    <div class="image-container">
+        <img src="https://images.saymedia-content.com/.image/t_share/MTc0NDY0MTc4ODc3MTEzOTkw/popular-romantic-korean-dramas-you-must-watch.jpg" alt="Image Description">
+    </div>
+    <h1>Welcome to My Awesome Website</h1>
+    <p>I'm Bon, an Asian/European girl and I am looking for the right woman for my journey.Woulld you like to join my love journey?</p>
+    <p>Are you looking for a fun and exciting time? Look no further!</p>
+    <p>Join me on an incredible journey filled with laughter, adventure, and great conversations.</p>
+    <p>Don't miss out on this amazing opportunity!</p>
+    <a class="cta-button" href="/api/UserProfile/CreateUserProfile">Sign up to be one of my girls</a>
+</div>
