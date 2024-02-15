@@ -1,6 +1,5 @@
 
 using SignalRChat.Hubs;  //singal r 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

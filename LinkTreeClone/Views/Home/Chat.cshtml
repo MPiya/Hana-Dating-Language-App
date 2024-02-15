@@ -1,37 +1,83 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title>Chat Application</title>
-  
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-2 col-label">Name</div>
-            <div class="col-10 col-input"><input type="text" id="userInput" /></div>
-        </div>
-        <div class="row">
-            <div class="col-2 col-label">Message</div>
-            <div class="col-10 col-input"><input type="text" class="w-100" id="messageInput" /></div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <input type="button" id="sendButton" value="Send Message" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <hr />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <ul id="messagesList"></ul>
-            </div>
+﻿<style>
+    .container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 8px;
+    }
+
+    .row {
+        margin-bottom: 10px;
+    }
+
+    .col-label {
+        font-weight: bold;
+        text-align: right;
+    }
+
+    .col-input {
+        display: flex;
+        align-items: center;
+    }
+
+    #sendButton {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        #sendButton:hover {
+            background-color: #45a049;
+        }
+
+    hr {
+        border: none;
+        height: 1px;
+        background-color: #ddd;
+    }
+
+    #messagesList {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .message {
+        background-color: #fff;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-2 col-label">Name</div>
+        <div class="col-10 col-input"><input type="text" id="userInput" /></div>
+    </div>
+    <div class="row">
+        <div class="col-2 col-label">Message</div>
+        <div class="col-10 col-input"><input type="text" class="w-100" id="messageInput" /></div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <input type="button" id="sendButton" value="Send Message" />
         </div>
     </div>
+    <div class="row">   
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+</div>
 
-    <script src="~/js/signalr/dist/browser/signalr.js"></script>
-    <script src="~/js/chat.js"></script>
-</body>
-</html>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
