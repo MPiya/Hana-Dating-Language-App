@@ -1,9 +1,21 @@
-# Dating-APP-By-Piya
-My dating app lets you share your social media with others. If someone likes you, they can add you back, and then you can chat and maybe meet your potential life partner!
+Hana: Connect. Match. Chat.
+Welcome to Hana, the premier dating app designed to facilitate genuine connections and meaningful conversations. With Hana, sharing your social media presence is just the beginning of your journey towards finding your potential life partner.
 
+Version 1.00: Your Journey Begins
+Hana is proud to announce the release of version 1.00, packed with exciting features to enhance your dating experience. As we continue to evolve, expect even more innovative tools and functionalities, including the ability to find language partners to enrich your cultural exchange.
 
-The product is now in version 1.00 and there will be many features such as finding the language you want to learn! 
+Key Features
+Social Media Integration: Share your social media profiles effortlessly, allowing others to gain deeper insights into your personality and interests.
 
+Mutual Interest Matching: When someone likes your profile, mutual interest unlocks the potential for meaningful connections and conversations.
 
-![image](https://github.com/MPiya/Dating-App-Signal-R-/assets/71850259/a0c3de28-aaa8-4394-87f1-7fea325e6135)
+Secure Messaging: Chat securely with your matches, fostering genuine connections while ensuring your privacy and safety.
 
+Language Learning: Stay tuned for future updates introducing language learning features, enabling you to connect with others who share your passion for language and culture.
+
+Your Journey Starts Here
+Join Hana today and embark on a journey of discovery, connection, and possibility. Whether you're seeking companionship, friendship, or love, Hana offers a platform where authentic connections flourish.
+
+Hana Dating App
+
+Image provided for illustrative purposes only.
