@@ -29,28 +29,21 @@ namespace LinkTreeClone.Controllers
             return View(users);
         }
 
-        [HttpGet("allUsersAPI")]
-        public IActionResult AllUsersAPI()
-        {
-            var users = _userDb.GetUser();
-            return Ok(users);
-        }
-
         [HttpGet("createUserProfile")]
         public IActionResult CreateUserProfile()
         {
             return View();
         }
 
+
+
         [HttpPost("createUserProfile")]
         public IActionResult CreateUserProfile([FromForm] UserProfile userProfile)
         {
             _userDb.CreateUser(userProfile);
-           
+
             return Redirect("/api/UserProfile"); // Redirect to the UserProfile endpoint
         }
-
-        
 
 
 
