@@ -18,4 +18,4 @@ Join Hana today and embark on a journey of discovery, connection, and possibilit
 
 Hana Dating App
 
-Image provided for illustrative purposes only.
+![image](https://github.com/MPiya/Dating-App-Signal-R-/assets/71850259/01e4a5be-9eb1-4166-9a39-ea55879af576)
