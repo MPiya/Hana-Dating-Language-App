@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Hana.Models.UserProfile>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>All User Profiles</title>
+    <link rel="stylesheet" href="~/css/site.css" /> <!-- Add the CSS reference here -->
+</head>
+<body>
+    <h1>People who are interested in you</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Instagram Account</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var userProfile in Model)
+            {
+                <tr>
+                    <td>@userProfile.Name</td>
+                    <td>@userProfile.Age</td>
+                    <td>@userProfile.InstagramAccount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

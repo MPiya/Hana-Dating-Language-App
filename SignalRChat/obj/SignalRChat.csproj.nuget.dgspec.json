@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bon\\source\\repos\\LinkTreeClone\\SignalRChat\\SignalRChat.csproj": {}
+    "C:\\Coding Github\\Dating-App-Signal-R-\\SignalRChat\\SignalRChat.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bon\\source\\repos\\LinkTreeClone\\SignalRChat\\SignalRChat.csproj": {
+    "C:\\Coding Github\\Dating-App-Signal-R-\\SignalRChat\\SignalRChat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bon\\source\\repos\\LinkTreeClone\\SignalRChat\\SignalRChat.csproj",
+        "projectUniqueName": "C:\\Coding Github\\Dating-App-Signal-R-\\SignalRChat\\SignalRChat.csproj",
         "projectName": "SignalRChat",
-        "projectPath": "C:\\Users\\Bon\\source\\repos\\LinkTreeClone\\SignalRChat\\SignalRChat.csproj",
+        "projectPath": "C:\\Coding Github\\Dating-App-Signal-R-\\SignalRChat\\SignalRChat.csproj",
         "packagesPath": "C:\\Users\\Bon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bon\\source\\repos\\LinkTreeClone\\SignalRChat\\obj\\",
+        "outputPath": "C:\\Coding Github\\Dating-App-Signal-R-\\SignalRChat\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,16 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.35, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,6 +65,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -63,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

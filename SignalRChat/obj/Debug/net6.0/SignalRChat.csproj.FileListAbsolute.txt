@@ -30,3 +30,44 @@ C:\Users\Bon\source\repos\LinkTreeClone\SignalRChat\obj\Debug\net6.0\refint\Sign
 C:\Users\Bon\source\repos\LinkTreeClone\SignalRChat\obj\Debug\net6.0\SignalRChat.pdb
 C:\Users\Bon\source\repos\LinkTreeClone\SignalRChat\obj\Debug\net6.0\SignalRChat.genruntimeconfig.cache
 C:\Users\Bon\source\repos\LinkTreeClone\SignalRChat\obj\Debug\net6.0\ref\SignalRChat.dll
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\appsettings.Development.json
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\appsettings.json
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\libman.json
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\SignalRChat.staticwebassets.runtime.json
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\SignalRChat.exe
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\SignalRChat.deps.json
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\SignalRChat.runtimeconfig.json
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\SignalRChat.dll
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\SignalRChat.pdb
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\Dapper.dll
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\SignalRChat.csproj.AssemblyReference.cache
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\SignalRChat.GeneratedMSBuildEditorConfig.editorconfig
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\SignalRChat.AssemblyInfoInputs.cache
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\SignalRChat.AssemblyInfo.cs
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\SignalRChat.csproj.CoreCompileInputs.cache
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\SignalRChat.MvcApplicationPartsAssemblyInfo.cache
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\SignalRChat.RazorAssemblyInfo.cache
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\SignalRChat.RazorAssemblyInfo.cs
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\SignalRChat.sourcelink.json
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\staticwebassets.build.json
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\staticwebassets.development.json
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\staticwebassets\msbuild.SignalRChat.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\staticwebassets\msbuild.build.SignalRChat.props
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.SignalRChat.props
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.SignalRChat.props
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\scopedcss\bundle\SignalRChat.styles.css
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\scopedcss\projectbundle\SignalRChat.bundle.scp.css
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\SignalRChat.csproj.CopyComplete
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\SignalRChat.dll
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\refint\SignalRChat.dll
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\SignalRChat.pdb
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\SignalRChat.genruntimeconfig.cache
+C:\Coding Github\Dating-App-Signal-R-\SignalRChat\obj\Debug\net6.0\ref\SignalRChat.dll

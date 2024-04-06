@@ -1,0 +1,34 @@
+﻿@model Hana.Models.UserProfile
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create User Profile</title>
+    <link rel="stylesheet" href="~/css/signup.css" /> <!-- Add the CSS reference here -->
+</head>
+<body>
+    <div class="form-container">
+        <h2>Create User Profile</h2>
+
+        <form action="/api/UserProfile/createUserProfile" method="post">
+            <div>
+                <label asp-for="Name">Name:</label>
+                <input asp-for="Name" />
+            </div>
+
+            <div>
+                <label asp-for="Age">Age:</label>
+                <input asp-for="Age" />
+            </div>
+
+            <div>
+                <label asp-for="InstagramAccount">Instagram Account:</label>
+                <input asp-for="InstagramAccount" />
+            </div>
+
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>
