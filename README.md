@@ -1,4 +1,4 @@
-Hana: Connect. Match. Chat.
+# Hana: Connect. Match. Chat.
 Welcome to Hana, the premier dating app designed to facilitate genuine connections and meaningful conversations. With Hana, sharing your social media presence is just the beginning of your journey towards finding your potential life partner.
 
 Version 1.00: Your Journey Begins
