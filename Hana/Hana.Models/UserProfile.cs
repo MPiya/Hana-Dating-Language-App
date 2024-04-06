@@ -1,11 +1,9 @@
+using Microsoft.AspNetCore.Identity;
+
 namespace Hana.Models
 {
-    public class UserProfile
+    public class UserProfile  : IdentityUser
     {
-        public string Name { get; set; }
-        public int Age { get; set; }
-        public string InstagramAccount { get; set; }
        
-        public int UserId { get; set; }
     }
 }
