@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Hana.Models;
 using Hana.Hana.Database.Data;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -16,7 +17,7 @@ var connectionString = builder.Configuration.GetConnectionString("ApplicationDbC
 
 builder.Services.AddDbContext<HanaContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<HanaContext>();
+builder.Services.AddDefaultIdentity<UserProfile>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<HanaContext>();
 
 //// Add HanaContext to the dependency injection container
 //builder.Services.AddDbContext<HanaContext>(options => options.UseSqlServer(connectionString));

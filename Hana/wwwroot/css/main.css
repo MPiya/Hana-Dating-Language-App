@@ -1,5 +1,4 @@
 ﻿/* main.css */
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -19,13 +18,13 @@ header {
 }
 
 .navbar {
-    background-color: #FFC107;
+    background-color: #FF6B6B; /* Orange color */
 }
 
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #333;
+    color: #fff; /* White text */
     text-decoration: none;
 }
 
@@ -43,13 +42,13 @@ header {
 
 .nav-link {
     font-size: 1rem;
-    color: #fff;
+    color: #fff; /* White text */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
     .nav-link:hover {
-        color: #f8f9fa;
+        color: #f8f9fa; /* Lighter shade on hover */
     }
 
 main {
@@ -61,4 +60,25 @@ footer {
     padding: 10px;
     text-align: center;
     margin-top: 20px;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 10px;
+}
+
+/* Style the navbar toggler button */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Make the toggler button visible only on small screens */
+@media (min-width: 576px) {
+    .navbar-toggler {
+        display: none; /* Hide the navbar toggler button */
+    }
+}
+
+/* Apply black text color to logout button */
+#logout {
+    color: #000;
 }
