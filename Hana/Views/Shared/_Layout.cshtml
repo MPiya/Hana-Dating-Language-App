@@ -32,9 +32,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="UserProfile" asp-action="AllUsers">Profile</a>
                         </li>
-                      <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Sign up</a>
+                   
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="UserProfile" asp-action="ShowUsers">Show Profiles</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="UserProfile" asp-action="Create">Create Profile</a>
+                        </li>
+
 
                         <partial name="_LoginPartial" />
                     </ul>

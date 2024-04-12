@@ -32,7 +32,6 @@ builder.Services.AddDefaultIdentity<UserProfile>(options => options.SignIn.Requi
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddSignalR();
 builder.Services.AddScoped<UserDb>();
 var app = builder.Build();

@@ -1,0 +1,53 @@
+﻿@model Hana.Models.UserProfile
+
+<form asp-controller="UserProfile" asp-action="Create" method="post" style="max-width: 400px; margin: auto;">
+    <div style="margin-bottom: 10px;">
+        <label asp-for="Name" style="display: block;">Name:</label>
+        <input asp-for="Name" style="width: 100%; padding: 5px;" />
+        <span asp-validation-for="Name" style="color: red;"></span>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <label asp-for="Age" style="display: block;">Age:</label>
+        <input asp-for="Age" style="width: 100%; padding: 5px;" />
+        <span asp-validation-for="Age" style="color: red;"></span>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <label asp-for="InstagramAccount" style="display: block;">Instagram Account:</label>
+        <input asp-for="InstagramAccount" style="width: 100%; padding: 5px;" />
+        <span asp-validation-for="InstagramAccount" style="color: red;"></span>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <label asp-for="Bio" style="display: block;">Bio:</label>
+        <input asp-for="Bio" style="width: 100%; padding: 5px;" />
+        <span asp-validation-for="Bio" style="color: red;"></span>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <label asp-for="Interest" style="display: block;">Interest:</label>
+        <input asp-for="Interest" style="width: 100%; padding: 5px;" />
+        <span asp-validation-for="Interest" style="color: red;"></span>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <label asp-for="Gender" style="display: block;">Gender:</label>
+        <input asp-for="Gender" style="width: 100%; padding: 5px;" />
+        <span asp-validation-for="Gender" style="color: red;"></span>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <label asp-for="SpeakLanguage" style="display: block;">Speak Language:</label>
+        <input asp-for="SpeakLanguage" style="width: 100%; padding: 5px;" />
+        <span asp-validation-for="SpeakLanguage" style="color: red;"></span>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <label asp-for="LearnLanguage" style="display: block;">Learn Language:</label>
+        <input asp-for="LearnLanguage" style="width: 100%; padding: 5px;" />
+        <span asp-validation-for="LearnLanguage" style="color: red;"></span>
+    </div>
+
+    <button type="submit" style="padding: 10px;">Create</button>
+</form>

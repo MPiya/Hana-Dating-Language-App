@@ -1,0 +1,31 @@
+﻿<style>
+    .table td {
+        padding: 10px; /* Adjust the padding value as needed */
+    }
+</style>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <!-- Add more table headings for other UserProfile properties -->
+            <th>Bio</th>
+        @*     <th>Actions</th> *@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var userProfile in Model)
+        {
+            <tr>
+                <td>@userProfile.Name |</td>
+                <td>@userProfile.Bio |</td>
+                <!-- Add more table cells for other UserProfile properties -->
+                @* <td>
+                    <a asp-action="Details" asp-route-id="@userProfile.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@userProfile.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@userProfile.Id">Delete</a>
+                </td> *@
+            </tr>
+        }
+    </tbody>
+</table>
