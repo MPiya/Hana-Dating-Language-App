@@ -10,6 +10,11 @@ namespace Hana.Controllers
             return View();
         }
 
+        public IActionResult BootTheme()
+        {
+            return View();
+        }
+
 
         public IActionResult Chat()
         {

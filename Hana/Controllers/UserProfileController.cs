@@ -45,14 +45,7 @@ namespace Hana.Controllers
             return userProfile;
         }
 
-        //[HttpPost]
-        //public async Task<ActionResult<UserProfile>> PostUserProfile(UserProfile userProfile)
-        //{
-        //    _context.UserProfiles.Add(userProfile);
-        //    await _context.SaveChangesAsync();
 
-        //    return CreatedAtAction(nameof(GetUserProfile), new { id = userProfile.Id }, userProfile);
-        //}
 
 
           [HttpPut("{id}")]
@@ -107,7 +100,7 @@ namespace Hana.Controllers
         #endregion
 
 
-        // Action method to display a list of user profiles
+       
         public async Task<IActionResult> ShowUsers()
         {
             var userProfiles = await _context.UserProfiles.ToListAsync();

@@ -1,24 +1,66 @@
 ﻿<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+
     .container {
         max-width: 500px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #f2f2f2;
+        margin: 20px auto;
+        background-color: #ffffff;
         border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    .row {
-        margin-bottom: 10px;
+    .header {
+        padding: 20px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+        font-size: 20px;
     }
 
-    .col-label {
-        font-weight: bold;
-        text-align: right;
+    .messages {
+        padding: 20px;
+        overflow-y: auto;
+        max-height: 300px;
     }
 
-    .col-input {
+    .message {
+        background-color: #fff;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .message.sent {
+            background-color: #00bfff;
+            color: #fff;
+            margin-left: auto;
+        }
+
+        .message.received {
+            background-color: #f2f2f2;
+            color: #333;
+            margin-right: auto;
+        }
+
+    .input-area {
         display: flex;
         align-items: center;
+        padding: 10px;
+        border-top: 1px solid #ddd;
+    }
+
+    #userInput,
+    #messageInput {
+        flex-grow: 1;
+        padding: 10px;
+        margin-right: 10px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        outline: none;
     }
 
     #sendButton {
@@ -33,49 +75,15 @@
         #sendButton:hover {
             background-color: #45a049;
         }
-
-    hr {
-        border: none;
-        height: 1px;
-        background-color: #ddd;
-    }
-
-    #messagesList {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    .message {
-        background-color: #fff;
-        padding: 10px;
-        margin-bottom: 10px;
-        border-radius: 4px;
-    }
 </style>
 
 <div class="container">
-    <div class="row">
-        <div class="col-2 col-label">Name</div>
-        <div class="col-10 col-input"><input type="text" id="userInput" /></div>
-    </div>
-    <div class="row">
-        <div class="col-2 col-label">Message</div>
-        <div class="col-10 col-input"><input type="text" class="w-100" id="messageInput" /></div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <input type="button" id="sendButton" value="Send Message" />
-        </div>
-    </div>
-    <div class="row">   
-        <div class="col-12">
-            <hr />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <ul id="messagesList"></ul>
-        </div>
+    <div class="header">Chat</div>
+    <div class="messages" id="messagesList"></div>
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="Name" />
+        <input type="text" id="messageInput" placeholder="Message" />
+        <input type="button" id="sendButton" value="Send" />
     </div>
 </div>
 

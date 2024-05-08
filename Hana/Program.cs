@@ -1,4 +1,4 @@
-using Hana.Controllers;
+ using Hana.Controllers;
 using Hana.DB;
 using Hana.hubs;
 using Microsoft.OpenApi.Models;
@@ -50,8 +50,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-//signall chatHub
+//signalR chatHub
 app.MapHub<ChatHub>("/chatHub");
+
 // use this to map with Identiy framework Razor pages
 app.MapRazorPages();
 app.MapControllerRoute(

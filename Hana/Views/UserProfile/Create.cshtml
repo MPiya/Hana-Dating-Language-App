@@ -13,6 +13,15 @@
         <span asp-validation-for="Age" style="color: red;"></span>
     </div>
 
+
+
+    <div style="margin-bottom: 10px;">
+        <label asp-for="Nationality" style="display: block;">Nationality:</label>
+        <input asp-for="Nationality" style="width: 100%; padding: 5px;" />
+        <span asp-validation-for="Nationality" style="color: red;"></span>
+    </div>
+
+
     <div style="margin-bottom: 10px;">
         <label asp-for="InstagramAccount" style="display: block;">Instagram Account:</label>
         <input asp-for="InstagramAccount" style="width: 100%; padding: 5px;" />
@@ -31,9 +40,14 @@
         <span asp-validation-for="Interest" style="color: red;"></span>
     </div>
 
+
     <div style="margin-bottom: 10px;">
         <label asp-for="Gender" style="display: block;">Gender:</label>
-        <input asp-for="Gender" style="width: 100%; padding: 5px;" />
+        <select asp-for="Gender" style="width: 100%; padding: 5px;">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
         <span asp-validation-for="Gender" style="color: red;"></span>
     </div>
 

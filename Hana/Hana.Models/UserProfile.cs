@@ -38,5 +38,10 @@ namespace Hana.Models
         [Required(ErrorMessage = "Learn Language is required")]
         [StringLength(100)]
         public string LearnLanguage { get; set; }
+
+
+        [Required(ErrorMessage = "Nationality is required")]
+        [StringLength(100)]
+        public string Nationality { get; set; }
     }
 }

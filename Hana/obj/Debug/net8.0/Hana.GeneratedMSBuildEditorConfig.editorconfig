@@ -186,12 +186,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Coding Github/Dating-App-Signal-R-/Hana/Views/Home/BootTheme.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCb290VGhlbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Coding Github/Dating-App-Signal-R-/Hana/Views/Home/Chat.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDaGF0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Coding Github/Dating-App-Signal-R-/Hana/Views/Home/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Coding Github/Dating-App-Signal-R-/Hana/Views/Matching/DisplayMatchedUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hpbmdcRGlzcGxheU1hdGNoZWRVc2Vycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Coding Github/Dating-App-Signal-R-/Hana/Views/Matching/SearchUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hpbmdcU2VhcmNoVXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Coding Github/Dating-App-Signal-R-/Hana/Views/Shared/_LoginPartial.cshtml]

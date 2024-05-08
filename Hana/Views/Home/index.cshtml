@@ -5,7 +5,7 @@
 <style>
     /* Custom CSS for home page */
     .hero-section {
-        background-color: #f8f8f8;
+        background-color: #fff; /* Changed background color to white */
         padding: 2rem;
         text-align: center;
     }
@@ -50,14 +50,24 @@
             max-width: 70%;
             margin-left: 15%;
         }
+
+    .hidden-video {
+        position: absolute;
+        left: -9999px;
+    }
 </style>
 
 <div class="hero-section">
+    <!-- Hide the video player off-screen -->
+    <iframe class="hidden-video" width="1" height="1" src="https://www.youtube.com/embed/5_hE3XzxOYc?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
     <div class="image-container">
+
         <img src="https://images.saymedia-content.com/.image/t_share/MTc0NDY0MTc4ODc3MTEzOTkw/popular-romantic-korean-dramas-you-must-watch.jpg" alt="Image Description">
     </div>
     <h1>Welcome to Hana</h1>
     <p>A place where you will meet your new friends or potential partner while exchanging languages.</p>
-    
+
     <a class="cta-button" asp-area="Identity" asp-page="/Account/Register">VAMOS SIGN UP NOW 😉 </a>
 </div>

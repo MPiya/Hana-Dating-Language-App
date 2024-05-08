@@ -7,7 +7,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Gender</th>
             <th>Name</th>
+            <th>Age</th>
             <!-- Add more table headings for other UserProfile properties -->
             <th>Bio</th>
         @*     <th>Actions</th> *@
@@ -17,8 +19,11 @@
         @foreach (var userProfile in Model)
         {
             <tr>
+                <td>@userProfile.Gender |</td>
                 <td>@userProfile.Name |</td>
+                <td>@userProfile.Age |</td>
                 <td>@userProfile.Bio |</td>
+              
                 <!-- Add more table cells for other UserProfile properties -->
                 @* <td>
                     <a asp-action="Details" asp-route-id="@userProfile.Id">Details</a> |
