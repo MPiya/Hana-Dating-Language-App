@@ -29,7 +29,7 @@
                             <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Chat">Chat room</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Chat">Chat</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Profile</a>
@@ -37,23 +37,22 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Matching" asp-action="SearchUsers">Search</a>
                         </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Dropdown
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="UserProfile" asp-action="Create">Create</a>
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <a class="dropdown-item" href="#">Something else here</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Separated link</a>
                             </div>
+
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
