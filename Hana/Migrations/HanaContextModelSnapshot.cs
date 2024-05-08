@@ -57,7 +57,6 @@ namespace Hana.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("InstagramAccount")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
