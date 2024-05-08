@@ -31,12 +31,10 @@ namespace Hana.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Age")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Bio")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -52,7 +50,6 @@ namespace Hana.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Gender")
-                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
@@ -61,12 +58,10 @@ namespace Hana.Migrations
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Interest")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("LearnLanguage")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -77,12 +72,10 @@ namespace Hana.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Nationality")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -107,7 +100,6 @@ namespace Hana.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SpeakLanguage")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
