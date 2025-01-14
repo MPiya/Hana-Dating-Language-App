@@ -505,23 +505,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bon\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\BON\\.nuget\\packages\\": {},
+    "F:\\Program File\\Shared SDK\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Coding Github\\Dating-App-Signal-R-\\SignalRChat\\SignalRChat.csproj",
+      "projectUniqueName": "C:\\Users\\BON\\Documents\\GitHub\\Hana-Dating-Language-App\\SignalRChat\\SignalRChat.csproj",
       "projectName": "SignalRChat",
-      "projectPath": "C:\\Coding Github\\Dating-App-Signal-R-\\SignalRChat\\SignalRChat.csproj",
-      "packagesPath": "C:\\Users\\Bon\\.nuget\\packages\\",
-      "outputPath": "C:\\Coding Github\\Dating-App-Signal-R-\\SignalRChat\\obj\\",
+      "projectPath": "C:\\Users\\BON\\Documents\\GitHub\\Hana-Dating-Language-App\\SignalRChat\\SignalRChat.csproj",
+      "packagesPath": "C:\\Users\\BON\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\BON\\Documents\\GitHub\\Hana-Dating-Language-App\\SignalRChat\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "F:\\Program File\\Shared SDK\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Bon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\BON\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -543,7 +543,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net6.0": {
@@ -572,19 +578,19 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.29, 6.0.29]"
+            "version": "[6.0.36, 6.0.36]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[6.0.29, 6.0.29]"
+            "version": "[6.0.36, 6.0.36]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.29, 6.0.29]"
+            "version": "[6.0.36, 6.0.36]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.29, 6.0.29]"
+            "version": "[6.0.36, 6.0.36]"
           }
         ],
         "frameworkReferences": {
@@ -595,7 +601,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.104\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
