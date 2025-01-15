@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Hana")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a22fd111a262803a0bbaef49368530b59cc7fc4d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+026eaba24c4493dead0621695596ab824b617c88")]
 [assembly: System.Reflection.AssemblyProductAttribute("Hana")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Hana")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -18,10 +18,12 @@ namespace Hana.Areas.Identity.Pages.Account
     public class ConfirmEmailModel : PageModel
     {
         private readonly UserManager<UserProfile> _userManager;
+        private readonly SignInManager<UserProfile> _signInManager;
 
-        public ConfirmEmailModel(UserManager<UserProfile> userManager)
+        public ConfirmEmailModel(UserManager<UserProfile> userManager, SignInManager<UserProfile> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         /// <summary>
@@ -45,8 +47,16 @@ namespace Hana.Areas.Identity.Pages.Account
 
             code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
             var result = await _userManager.ConfirmEmailAsync(user, code);
-            StatusMessage = result.Succeeded ? "Thank you for confirming your email." : "Error confirming your email.";
-            return Page();
+            if (result.Succeeded)
+            {
+                await _signInManager.SignInAsync(user, isPersistent: false);
+                return RedirectToAction("Create", "UserProfile");
+            }
+            else
+            {
+                StatusMessage = "Error confirming your email.";
+                return Page();
+            }
         }
     }
 }

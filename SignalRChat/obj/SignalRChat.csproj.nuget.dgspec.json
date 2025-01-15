@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\BON\\Documents\\GitHub\\Hana-Dating-Language-App\\SignalRChat\\SignalRChat.csproj": {}
+    "F:\\repos\\Hana-Dating-Language-App\\SignalRChat\\SignalRChat.csproj": {}
   },
   "projects": {
-    "C:\\Users\\BON\\Documents\\GitHub\\Hana-Dating-Language-App\\SignalRChat\\SignalRChat.csproj": {
+    "F:\\repos\\Hana-Dating-Language-App\\SignalRChat\\SignalRChat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BON\\Documents\\GitHub\\Hana-Dating-Language-App\\SignalRChat\\SignalRChat.csproj",
+        "projectUniqueName": "F:\\repos\\Hana-Dating-Language-App\\SignalRChat\\SignalRChat.csproj",
         "projectName": "SignalRChat",
-        "projectPath": "C:\\Users\\BON\\Documents\\GitHub\\Hana-Dating-Language-App\\SignalRChat\\SignalRChat.csproj",
+        "projectPath": "F:\\repos\\Hana-Dating-Language-App\\SignalRChat\\SignalRChat.csproj",
         "packagesPath": "C:\\Users\\BON\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BON\\Documents\\GitHub\\Hana-Dating-Language-App\\SignalRChat\\obj\\",
+        "outputPath": "F:\\repos\\Hana-Dating-Language-App\\SignalRChat\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\Program File\\Shared SDK\\NuGetPackages"
@@ -71,24 +71,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.36, 6.0.36]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.36, 6.0.36]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.36, 6.0.36]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.36, 6.0.36]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"

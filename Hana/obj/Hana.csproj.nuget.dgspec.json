@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\BON\\Documents\\GitHub\\Hana-Dating-Language-App\\Hana\\Hana.csproj": {}
+    "F:\\repos\\Hana-Dating-Language-App\\Hana\\Hana.csproj": {}
   },
   "projects": {
-    "C:\\Users\\BON\\Documents\\GitHub\\Hana-Dating-Language-App\\Hana\\Hana.csproj": {
+    "F:\\repos\\Hana-Dating-Language-App\\Hana\\Hana.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BON\\Documents\\GitHub\\Hana-Dating-Language-App\\Hana\\Hana.csproj",
+        "projectUniqueName": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Hana.csproj",
         "projectName": "Hana",
-        "projectPath": "C:\\Users\\BON\\Documents\\GitHub\\Hana-Dating-Language-App\\Hana\\Hana.csproj",
+        "projectPath": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Hana.csproj",
         "packagesPath": "C:\\Users\\BON\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BON\\Documents\\GitHub\\Hana-Dating-Language-App\\Hana\\obj\\",
+        "outputPath": "F:\\repos\\Hana-Dating-Language-App\\Hana\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\Program File\\Shared SDK\\NuGetPackages"

@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Retrieve the connection string from app settings
-var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection") ?? throw new InvalidOperationException("Connection string 'HanaContextConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("HanaContextConnection") ?? throw new InvalidOperationException("Connection string 'HanaContextConnection' not found.");
 
 builder.Services.AddDbContext<HanaContext>(options => options.UseSqlServer(connectionString));
 

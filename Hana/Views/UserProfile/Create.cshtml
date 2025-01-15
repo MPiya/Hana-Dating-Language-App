@@ -30,7 +30,8 @@
 
     <div style="margin-bottom: 10px;">
         <label asp-for="Bio" style="display: block;">Bio:</label>
-        <input asp-for="Bio" style="width: 100%; padding: 5px;" />
+        <textarea asp-for="Bio" style="width: 100%; padding: 5px; min-height: 100px;" maxlength="500" oninput="updateCharCount(this)"></textarea>
+        <div id="charCount" style="font-size: 0.8em; color: #666;">0/500 characters</div>
         <span asp-validation-for="Bio" style="color: red;"></span>
     </div>
 
@@ -65,3 +66,14 @@
 
     <button type="submit" style="padding: 10px;">Create</button>
 </form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        function updateCharCount(textarea) {
+            const maxLength = 500;
+            const currentLength = textarea.value.length;
+            document.getElementById('charCount').textContent = `${currentLength}/${maxLength} characters`;
+        }
+    </script>
+}

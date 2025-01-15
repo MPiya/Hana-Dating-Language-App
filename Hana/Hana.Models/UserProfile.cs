@@ -20,7 +20,7 @@ namespace Hana.Models
         public string? InstagramAccount { get; set; }
 
      
-        [StringLength(50)]
+        [StringLength(500)]
         public string? Bio { get; set; }
 
        
