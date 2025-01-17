@@ -20,10 +20,10 @@ namespace Hana.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {
-        private readonly SignInManager<UserProfile> _signInManager;
+        private readonly SignInManager<UserIdentity> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<UserProfile> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<UserIdentity> signInManager, ILogger<LoginModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;

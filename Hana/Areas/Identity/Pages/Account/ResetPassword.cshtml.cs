@@ -17,9 +17,9 @@ namespace Hana.Areas.Identity.Pages.Account
 {
     public class ResetPasswordModel : PageModel
     {
-        private readonly UserManager<UserProfile> _userManager;
+        private readonly UserManager<UserIdentity> _userManager;
 
-        public ResetPasswordModel(UserManager<UserProfile> userManager)
+        public ResetPasswordModel(UserManager<UserIdentity> userManager)
         {
             _userManager = userManager;
         }

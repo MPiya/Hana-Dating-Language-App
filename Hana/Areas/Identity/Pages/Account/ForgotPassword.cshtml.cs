@@ -19,10 +19,10 @@ namespace Hana.Areas.Identity.Pages.Account
 {
     public class ForgotPasswordModel : PageModel
     {
-        private readonly UserManager<UserProfile> _userManager;
+        private readonly UserManager<UserIdentity> _userManager;
         private readonly IEmailSender _emailSender;
 
-        public ForgotPasswordModel(UserManager<UserProfile> userManager, IEmailSender emailSender)
+        public ForgotPasswordModel(UserManager<UserIdentity> userManager, IEmailSender emailSender)
         {
             _userManager = userManager;
             _emailSender = emailSender;

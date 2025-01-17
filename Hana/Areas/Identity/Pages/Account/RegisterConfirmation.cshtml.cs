@@ -18,10 +18,10 @@ namespace Hana.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterConfirmationModel : PageModel
     {
-        private readonly UserManager<UserProfile> _userManager;
+        private readonly UserManager<UserIdentity> _userManager;
         private readonly IEmailSender _sender;
 
-        public RegisterConfirmationModel(UserManager<UserProfile> userManager, IEmailSender sender)
+        public RegisterConfirmationModel(UserManager<UserIdentity> userManager, IEmailSender sender)
         {
             _userManager = userManager;
             _sender = sender;
@@ -70,7 +70,7 @@ namespace Hana.Areas.Identity.Pages.Account
                 EmailConfirmationUrl = Url.Page(
                     "/Account/ConfirmEmail",
                     pageHandler: null,
-                    values: new { area = "Identity", userId, code, returnUrl },
+                    values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                     protocol: Request.Scheme);
             }
 

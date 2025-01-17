@@ -17,13 +17,13 @@ namespace Hana.Areas.Identity.Pages.Account
 {
     public class LoginWith2faModel : PageModel
     {
-        private readonly SignInManager<UserProfile> _signInManager;
-        private readonly UserManager<UserProfile> _userManager;
+        private readonly SignInManager<UserIdentity> _signInManager;
+        private readonly UserManager<UserIdentity> _userManager;
         private readonly ILogger<LoginWith2faModel> _logger;
 
         public LoginWith2faModel(
-            SignInManager<UserProfile> signInManager,
-            UserManager<UserProfile> userManager,
+            SignInManager<UserIdentity> signInManager,
+            UserManager<UserIdentity> userManager,
             ILogger<LoginWith2faModel> logger)
         {
             _signInManager = signInManager;

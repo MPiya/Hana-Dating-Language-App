@@ -15,12 +15,12 @@ namespace Hana.Areas.Identity.Pages.Account.Manage
 {
     public class IndexModel : PageModel
     {
-        private readonly UserManager<UserProfile> _userManager;
-        private readonly SignInManager<UserProfile> _signInManager;
+        private readonly UserManager<UserIdentity> _userManager;
+        private readonly SignInManager<UserIdentity> _signInManager;
 
         public IndexModel(
-            UserManager<UserProfile> userManager,
-            SignInManager<UserProfile> signInManager)
+            UserManager<UserIdentity> userManager,
+            SignInManager<UserIdentity> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -61,7 +61,7 @@ namespace Hana.Areas.Identity.Pages.Account.Manage
             public string PhoneNumber { get; set; }
         }
 
-        private async Task LoadAsync(UserProfile user)
+        private async Task LoadAsync(UserIdentity user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);

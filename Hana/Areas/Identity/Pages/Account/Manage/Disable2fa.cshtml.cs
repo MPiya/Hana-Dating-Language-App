@@ -14,11 +14,11 @@ namespace Hana.Areas.Identity.Pages.Account.Manage
 {
     public class Disable2faModel : PageModel
     {
-        private readonly UserManager<UserProfile> _userManager;
+        private readonly UserManager<UserIdentity> _userManager;
         private readonly ILogger<Disable2faModel> _logger;
 
         public Disable2faModel(
-            UserManager<UserProfile> userManager,
+            UserManager<UserIdentity> userManager,
             ILogger<Disable2faModel> logger)
         {
             _userManager = userManager;

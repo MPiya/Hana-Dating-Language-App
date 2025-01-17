@@ -1,0 +1,63 @@
+@model Hana.Models.UserProfile
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">@Model.Name's Profile</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-4 font-weight-bold">Age:</div>
+                        <div class="col-md-8">@Model.Age</div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4 font-weight-bold">Nationality:</div>
+                        <div class="col-md-8">@Model.Nationality</div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4 font-weight-bold">Gender:</div>
+                        <div class="col-md-8">@Model.Gender</div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4 font-weight-bold">Languages:</div>
+                        <div class="col-md-8">
+                            <div>Speaks: @Model.SpeakLanguage</div>
+                            <div>Learning: @Model.LearnLanguage</div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4 font-weight-bold">Interests:</div>
+                        <div class="col-md-8">@Model.Interest</div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-4 font-weight-bold">Bio:</div>
+                        <div class="col-md-8">@Model.Bio</div>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.InstagramAccount))
+                    {
+                        <div class="row mb-3">
+                            <div class="col-md-4 font-weight-bold">Instagram:</div>
+                            <div class="col-md-8">@Model.InstagramAccount</div>
+                        </div>
+                    }
+
+                    <div class="text-center mt-4">
+                        <a asp-action="Edit" class="btn btn-primary">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

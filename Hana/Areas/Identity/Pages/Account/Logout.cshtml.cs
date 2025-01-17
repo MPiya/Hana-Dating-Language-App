@@ -15,10 +15,10 @@ namespace Hana.Areas.Identity.Pages.Account
 {
     public class LogoutModel : PageModel
     {
-        private readonly SignInManager<UserProfile> _signInManager;
+        private readonly SignInManager<UserIdentity> _signInManager;
         private readonly ILogger<LogoutModel> _logger;
 
-        public LogoutModel(SignInManager<UserProfile> signInManager, ILogger<LogoutModel> logger)
+        public LogoutModel(SignInManager<UserIdentity> signInManager, ILogger<LogoutModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;

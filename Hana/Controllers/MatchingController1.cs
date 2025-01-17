@@ -1,91 +1,90 @@
-﻿using Hana.Hana.Database.Data;
-using Hana.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
+﻿//using Hana.Models;
+//using Microsoft.AspNetCore.Mvc;
+//using Microsoft.EntityFrameworkCore;
+//using Newtonsoft.Json;
+//using Hana.Hana.Database.Data;
 
-namespace Hana.Controllers
-{
+//namespace Hana.Controllers
+//{
+//    [Route("api/[controller]")]
+//    [ApiController]
+//    public class MatchingController : ControllerBase
+//    {
+//        private readonly HanaContext _context;
 
-    public class MatchingController : Controller
-    {
-        private readonly HanaContext _context;
+//        public MatchingController(HanaContext context)
+//        {
+//            _context = context;
+//        }
 
-        public MatchingController(HanaContext context)
-        {
-            _context = context;
-        }
+//        [HttpGet("search")]
+//        public async Task<ActionResult<IEnumerable<UserProfile>>> SearchUsersApi(string nationality, string gender)
+//        {
+//            if (string.IsNullOrEmpty(nationality) && string.IsNullOrEmpty(gender))
+//            {
+//                return BadRequest("Please provide at least one search criteria");
+//            }
 
-        #region ApiEndpoints
+//            var matchedUsers = await _context.UserProfiles
+//                .Where(u => (string.IsNullOrEmpty(nationality) || u.Nationality == nationality) &&
+//                           (string.IsNullOrEmpty(gender) || u.Gender == gender))
+//                .ToListAsync();
 
-        // Action method to serve the API endpoint for searching matched users
-        [HttpGet("api/search")]
-        public async Task<ActionResult<IEnumerable<UserProfile>>> SearchUsersApi(string nationality, string gender)
-        {
-            try
-            {
-                var matchedUsers = await _context.UserProfiles
-                    .Where(u => u.Nationality == nationality && u.Gender == gender)
-                    .ToListAsync();
+//            if (!matchedUsers.Any())
+//            {
+//                return NotFound("No users found matching the criteria");
+//            }
 
-                if (matchedUsers == null || matchedUsers.Count == 0)
-                {
-                    return NotFound("No users found with the specified nationality and gender.");
-                }
+//            return Ok(matchedUsers);
+//        }
 
-                return Ok(matchedUsers);
-            }
-            catch (Exception ex)
-            {
-              
-                Console.WriteLine(ex.Message);
-                return StatusCode(500, "An error occurred while processing your request.");
-            }
-        }
+//        [HttpGet("display")]
+//        public IActionResult DisplayMatchedUsers(string nationality, string gender)
+//        {
+//            if (string.IsNullOrEmpty(nationality) && string.IsNullOrEmpty(gender))
+//            {
+//                return BadRequest("Please provide at least one search criteria");
+//            }
 
-        #endregion
+//            var matchedUsers = _context.UserProfiles
+//                .Where(u => (string.IsNullOrEmpty(nationality) || u.Nationality == nationality) &&
+//                           (string.IsNullOrEmpty(gender) || u.Gender == gender))
+//                .ToList();
 
+//            if (!matchedUsers.Any())
+//            {
+//                ViewBag.Message = "No users found matching the criteria";
+//                return View("DisplayMatchedUsers", new List<UserProfile>());
+//            }
 
+//            // Serialize the matched users to TempData to persist across redirects
+//            TempData["MatchedUsers"] = JsonConvert.SerializeObject(matchedUsers);
 
-        public IActionResult SearchUsers()
-        {
-            return View();
-        }
+//            return View("DisplayMatchedUsers", matchedUsers);
+//        }
 
-        [HttpPost]
-        public IActionResult SearchUsersView(string nationality, string gender)
-        {
-          
-            var matchedUsers = _context.UserProfiles
-                .Where(u => u.Nationality == nationality && u.Gender == gender)
-                .ToList();
+//        [HttpGet("search-form")]
+//        public IActionResult SearchForm()
+//        {
+//            return View();
+//        }
 
+//        [HttpPost("search-form")]
+//        public IActionResult ProcessSearchForm(string nationality, string gender)
+//        {
+//            return RedirectToAction("DisplayMatchedUsers", new { nationality, gender });
+//        }
 
-            // The reason to serialize object because if used "matchedUsers" directly it doesn't work because TempData don't accept complex object
-            TempData["MatchedUsers"] = JsonConvert.SerializeObject(matchedUsers);
+//        private List<UserProfile> GetMatchedUsersFromTempData()
+//        {
+//            var serializedUsers = TempData["MatchedUsers"] as string;
+//            if (string.IsNullOrEmpty(serializedUsers))
+//            {
+//                return new List<UserProfile>();
+//            }
 
-
-            return RedirectToAction("DisplayMatchedUsers");
-        }
-
-        
-        public IActionResult DisplayMatchedUsers()
-        {
-           
-            var serializedUsers = TempData["MatchedUsers"] as string;
-
-            if (string.IsNullOrEmpty(serializedUsers))
-            {
-              
-                return RedirectToAction("SearchUsers");
-            }
-
-           
-            var matchedUsers = JsonConvert.DeserializeObject<List<UserProfile>>(serializedUsers);
-
-            return View(matchedUsers);
-        }
-
-
-    }
-}
+//            var matchedUsers = JsonConvert.DeserializeObject<List<UserProfile>>(serializedUsers);
+//            return matchedUsers ?? new List<UserProfile>();
+//        }
+//    }
+//}

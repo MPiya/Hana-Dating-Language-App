@@ -1,14 +1,17 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Hana.Models
 
-@inject SignInManager<UserProfile> SignInManager
-@inject UserManager<UserProfile> UserManager
+@inject SignInManager<UserIdentity> SignInManager
+@inject UserManager<UserIdentity> UserManager
 
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
         <li class="nav-item">
             <a id="manage" class="nav-link black-text" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link black-text" asp-controller="UserProfile" asp-action="MyProfile">My Profile</a>
         </li>
         <li class="nav-item">
             <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

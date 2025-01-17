@@ -1,167 +1,116 @@
-﻿
-using Hana.Models;
+﻿using Hana.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Data.SqlClient;
-using System.Data;
-using Hana.Hana.Database.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Hana.Hana.Database.Data;
 
 namespace Hana.Controllers
 {
-    
+    [Authorize]
     public class UserProfileController : Controller
     {
-
         private readonly HanaContext _context;
+        private readonly UserManager<UserIdentity> _userManager;
 
-        public UserProfileController(HanaContext context)
+        public UserProfileController(HanaContext context, UserManager<UserIdentity> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
-        #region API Endpoints
-
-
-
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserProfile>>> GetUserProfiles()
+        public async Task<IActionResult> MyProfile()
         {
-            return await _context.UserProfiles.ToListAsync();
-        }
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<UserProfile>> GetUserProfile(int id)
-        {
-            var userProfile = await _context.UserProfiles.FindAsync(id);
-
-            if (userProfile == null)
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return userProfile;
-        }
+            var profile = await _context.UserProfiles
+                .FirstOrDefaultAsync(p => p.UserId == user.Id);
 
-
-
-
-          [HttpPut("{id}")]
-    public async Task<IActionResult> PutUserProfile(string id, UserProfile userProfile)
-    {
-        if (id != userProfile.Id)
-        {
-            return BadRequest();
-        }
-
-        _context.Entry(userProfile).State = EntityState.Modified;
-
-        try
-        {
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!UserProfileExists(id))
+            if (profile == null)
             {
-                return NotFound();
-            }
-            else
-            {
-                throw;
-            }
-        }
-
-        return NoContent();
-    }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUserProfile(int id)
-        {
-            var userProfile = await _context.UserProfiles.FindAsync(id);
-            if (userProfile == null)
-            {
-                return NotFound();
+                return RedirectToAction(nameof(Create));
             }
 
-            _context.UserProfiles.Remove(userProfile);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            return View(profile);
         }
 
-        private bool UserProfileExists(string id)
-        {
-            return _context.UserProfiles.Any(e => e.Id == id);
-        }
-
-        #endregion
-
-
-       
-        public async Task<IActionResult> ShowUsers()
-        {
-            var userProfiles = await _context.UserProfiles.ToListAsync();
-            return View(userProfiles);
-        }
-
-
-        // Action method to display a form for creating a new user profile
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(UserProfile userProfile)
         {
-            if (ModelState.IsValid)
+            // Remove validation for UserId and User since we'll set them
+            ModelState.Remove("UserId");
+            ModelState.Remove("User");
+
+            if (!ModelState.IsValid)
             {
-                _context.Add(userProfile);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("ShowUsers", "UserProfile");
+                foreach (var modelError in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    ModelState.AddModelError(string.Empty, modelError.ErrorMessage);
+                }
+                return View(userProfile);
             }
 
-            return View(userProfile);
-          /*  return View(userProfile);*/ // Return to the Create view with validation errors
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            // Check if profile already exists
+            var existingProfile = await _context.UserProfiles
+                .FirstOrDefaultAsync(p => p.UserId == user.Id);
+            
+            if (existingProfile != null)
+            {
+                // Update existing profile
+                existingProfile.Name = userProfile.Name;
+                existingProfile.Age = userProfile.Age;
+                existingProfile.Bio = userProfile.Bio;
+                existingProfile.Interest = userProfile.Interest;
+                existingProfile.Nationality = userProfile.Nationality;
+                existingProfile.SpeakLanguage = userProfile.SpeakLanguage;
+                existingProfile.LearnLanguage = userProfile.LearnLanguage;
+                existingProfile.Gender = userProfile.Gender;
+                existingProfile.InstagramAccount = userProfile.InstagramAccount;
+                
+                _context.Update(existingProfile);
+            }
+            else
+            {
+                // Set the UserId before creating new profile
+                userProfile.UserId = user.Id;
+                userProfile.User = user;
+                _context.Add(userProfile);
+            }
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(MyProfile));
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, "Error saving profile: " + ex.Message);
+                return View(userProfile);
+            }
         }
-        //    private readonly ILogger<UserProfileController> _logger;
-        //    private readonly UserDb _userDb;
 
-        //    public UserProfileController(ILogger<UserProfileController> logger, UserDb userDb)
-        //    {
-        //        _logger = logger;
-        //        _userDb = userDb;
-        //    }
-
-        //    [HttpGet]
-        //    public IActionResult AllUsers()
-        //    {
-        //        var users = _userDb.GetUser();
-        //        return View(users);
-        //    }
-
-        //    [HttpGet("createUserProfile")]
-        //    public IActionResult CreateUserProfile()
-        //    {
-        //        return View();
-        //    }
-
-
-
-        //    [HttpPost("createUserProfile")]
-        //    public IActionResult CreateUserProfile([FromForm] UserProfile userProfile)
-        //    {
-        //        _userDb.CreateUser(userProfile);
-
-        //        return Redirect("/api/UserProfile"); // Redirect to the UserProfile endpoint
-        //    }
-
-
-
-
-        //}
+        public async Task<IActionResult> ShowUsers()
+        {
+            var profiles = await _context.UserProfiles
+                .Include(p => p.User)
+                .ToListAsync();
+            return View(profiles);
+        }
     }
 }

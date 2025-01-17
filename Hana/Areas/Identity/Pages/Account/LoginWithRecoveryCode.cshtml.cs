@@ -15,13 +15,13 @@ namespace Hana.Areas.Identity.Pages.Account
 {
     public class LoginWithRecoveryCodeModel : PageModel
     {
-        private readonly SignInManager<UserProfile> _signInManager;
-        private readonly UserManager<UserProfile> _userManager;
+        private readonly SignInManager<UserIdentity> _signInManager;
+        private readonly UserManager<UserIdentity> _userManager;
         private readonly ILogger<LoginWithRecoveryCodeModel> _logger;
 
         public LoginWithRecoveryCodeModel(
-            SignInManager<UserProfile> signInManager,
-            UserManager<UserProfile> userManager,
+            SignInManager<UserIdentity> signInManager,
+            UserManager<UserIdentity> userManager,
             ILogger<LoginWithRecoveryCodeModel> logger)
         {
             _signInManager = signInManager;

@@ -1,6 +1,8 @@
 ﻿@model Hana.Models.UserProfile
 
 <form asp-controller="UserProfile" asp-action="Create" method="post" style="max-width: 400px; margin: auto;">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    
     <div style="margin-bottom: 10px;">
         <label asp-for="Name" style="display: block;">Name:</label>
         <input asp-for="Name" style="width: 100%; padding: 5px;" />
@@ -13,14 +15,11 @@
         <span asp-validation-for="Age" style="color: red;"></span>
     </div>
 
-
-
     <div style="margin-bottom: 10px;">
         <label asp-for="Nationality" style="display: block;">Nationality:</label>
         <input asp-for="Nationality" style="width: 100%; padding: 5px;" />
         <span asp-validation-for="Nationality" style="color: red;"></span>
     </div>
-
 
     <div style="margin-bottom: 10px;">
         <label asp-for="InstagramAccount" style="display: block;">Instagram Account:</label>
@@ -40,7 +39,6 @@
         <input asp-for="Interest" style="width: 100%; padding: 5px;" />
         <span asp-validation-for="Interest" style="color: red;"></span>
     </div>
-
 
     <div style="margin-bottom: 10px;">
         <label asp-for="Gender" style="display: block;">Gender:</label>

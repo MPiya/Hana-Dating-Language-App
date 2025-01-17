@@ -14,12 +14,12 @@ namespace Hana.Areas.Identity.Pages.Account.Manage
 {
     public class SetPasswordModel : PageModel
     {
-        private readonly UserManager<UserProfile> _userManager;
-        private readonly SignInManager<UserProfile> _signInManager;
+        private readonly UserManager<UserIdentity> _userManager;
+        private readonly SignInManager<UserIdentity> _signInManager;
 
         public SetPasswordModel(
-            UserManager<UserProfile> userManager,
-            SignInManager<UserProfile> signInManager)
+            UserManager<UserIdentity> userManager,
+            SignInManager<UserIdentity> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

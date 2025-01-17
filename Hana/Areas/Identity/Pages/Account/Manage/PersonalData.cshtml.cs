@@ -12,11 +12,11 @@ namespace Hana.Areas.Identity.Pages.Account.Manage
 {
     public class PersonalDataModel : PageModel
     {
-        private readonly UserManager<UserProfile> _userManager;
+        private readonly UserManager<UserIdentity> _userManager;
         private readonly ILogger<PersonalDataModel> _logger;
 
         public PersonalDataModel(
-            UserManager<UserProfile> userManager,
+            UserManager<UserIdentity> userManager,
             ILogger<PersonalDataModel> logger)
         {
             _userManager = userManager;

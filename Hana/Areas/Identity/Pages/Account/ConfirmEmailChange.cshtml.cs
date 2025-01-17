@@ -16,10 +16,10 @@ namespace Hana.Areas.Identity.Pages.Account
 {
     public class ConfirmEmailChangeModel : PageModel
     {
-        private readonly UserManager<UserProfile> _userManager;
-        private readonly SignInManager<UserProfile> _signInManager;
+        private readonly UserManager<UserIdentity> _userManager;
+        private readonly SignInManager<UserIdentity> _signInManager;
 
-        public ConfirmEmailChangeModel(UserManager<UserProfile> userManager, SignInManager<UserProfile> signInManager)
+        public ConfirmEmailChangeModel(UserManager<UserIdentity> userManager, SignInManager<UserIdentity> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

@@ -18,13 +18,13 @@ namespace Hana.Areas.Identity.Pages.Account.Manage
 {
     public class EmailModel : PageModel
     {
-        private readonly UserManager<UserProfile> _userManager;
-        private readonly SignInManager<UserProfile> _signInManager;
+        private readonly UserManager<UserIdentity> _userManager;
+        private readonly SignInManager<UserIdentity> _signInManager;
         private readonly IEmailSender _emailSender;
 
         public EmailModel(
-            UserManager<UserProfile> userManager,
-            SignInManager<UserProfile> signInManager,
+            UserManager<UserIdentity> userManager,
+            SignInManager<UserIdentity> signInManager,
             IEmailSender emailSender)
         {
             _userManager = userManager;
@@ -74,7 +74,7 @@ namespace Hana.Areas.Identity.Pages.Account.Manage
             public string NewEmail { get; set; }
         }
 
-        private async Task LoadAsync(UserProfile user)
+        private async Task LoadAsync(UserIdentity user)
         {
             var email = await _userManager.GetEmailAsync(user);
             Email = email;

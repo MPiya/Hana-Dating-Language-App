@@ -17,14 +17,14 @@ namespace Hana.Areas.Identity.Pages.Account.Manage
 {
     public class ExternalLoginsModel : PageModel
     {
-        private readonly UserManager<UserProfile> _userManager;
-        private readonly SignInManager<UserProfile> _signInManager;
-        private readonly IUserStore<UserProfile> _userStore;
+        private readonly UserManager<UserIdentity> _userManager;
+        private readonly SignInManager<UserIdentity> _signInManager;
+        private readonly IUserStore<UserIdentity> _userStore;
 
         public ExternalLoginsModel(
-            UserManager<UserProfile> userManager,
-            SignInManager<UserProfile> signInManager,
-            IUserStore<UserProfile> userStore)
+            UserManager<UserIdentity> userManager,
+            SignInManager<UserIdentity> signInManager,
+            IUserStore<UserIdentity> userStore)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -70,7 +70,7 @@ namespace Hana.Areas.Identity.Pages.Account.Manage
                 .ToList();
 
             string passwordHash = null;
-            if (_userStore is IUserPasswordStore<UserProfile> userPasswordStore)
+            if (_userStore is IUserPasswordStore<UserIdentity> userPasswordStore)
             {
                 passwordHash = await userPasswordStore.GetPasswordHashAsync(user, HttpContext.RequestAborted);
             }
