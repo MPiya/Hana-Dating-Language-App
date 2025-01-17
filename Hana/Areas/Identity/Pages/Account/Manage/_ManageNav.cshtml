@@ -1,4 +1,5 @@
-﻿@inject SignInManager<UserProfile> SignInManager
+﻿@using Hana.Models
+@inject SignInManager<UserIdentity> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
