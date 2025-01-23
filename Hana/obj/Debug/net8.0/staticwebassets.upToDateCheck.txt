@@ -104,8 +104,7 @@ wwwroot\css\signup.css
 wwwroot\css\site.css
 wwwroot\css\theme.css
 wwwroot\favicon.ico
-wwwroot\images\profiles\5df4117b-053c-4b71-beea-380c232205c3.jpeg
-wwwroot\images\profiles\d8c4fa96-7df4-4746-aee1-143a5840614c.jpg
+wwwroot\images\profiles\73f8bfef-a9b4-493b-8b43-bb3e8afe82b4.jpg
 wwwroot\js\chat.js
 wwwroot\js\signalr\dist\browser\signalr.js
 wwwroot\js\signalr\dist\browser\signalr.min.js

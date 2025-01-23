@@ -1284,29 +1284,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"dt3hxj35ge"},{"Name":"integrity","Value":"sha256-b3XftkQH4Jm4E5VlMJc86eLDvVkGvmgHG/Ywr6QP9YE="},{"Name":"label","Value":"_content/Hana/Hana.bundle.scp.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1121"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022b3XftkQH4Jm4E5VlMJc86eLDvVkGvmgHG/Ywr6QP9YE=\u0022"},{"Name":"Last-Modified","Value":"Wed, 15 Jan 2025 03:01:09 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Hana/images/profiles/5df4117b-053c-4b71-beea-380c232205c3.jpeg">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\5df4117b-053c-4b71-beea-380c232205c3.jpeg'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/Hana/images/profiles/73f8bfef-a9b4-493b-8b43-bb3e8afe82b4.5srjpo4rkq.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\73f8bfef-a9b4-493b-8b43-bb3e8afe82b4.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-14umLdHRPJSzAhOgF7EDJro1CgTY6UD2iMntt6l03Yc="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"173677"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u002214umLdHRPJSzAhOgF7EDJro1CgTY6UD2iMntt6l03Yc=\u0022"},{"Name":"Last-Modified","Value":"Thu, 23 Jan 2025 12:29:12 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"5srjpo4rkq"},{"Name":"integrity","Value":"sha256-m9NIJmA0E\u002BWTplMvDGMkuD9VTk4DBFMF/EEgbRb2Xxo="},{"Name":"label","Value":"_content/Hana/images/profiles/73f8bfef-a9b4-493b-8b43-bb3e8afe82b4.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"245422"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022m9NIJmA0E\u002BWTplMvDGMkuD9VTk4DBFMF/EEgbRb2Xxo=\u0022"},{"Name":"Last-Modified","Value":"Thu, 23 Jan 2025 12:58:08 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Hana/images/profiles/5df4117b-053c-4b71-beea-380c232205c3.tvfvm7ssgg.jpeg">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\5df4117b-053c-4b71-beea-380c232205c3.jpeg'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/Hana/images/profiles/73f8bfef-a9b4-493b-8b43-bb3e8afe82b4.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\73f8bfef-a9b4-493b-8b43-bb3e8afe82b4.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"tvfvm7ssgg"},{"Name":"integrity","Value":"sha256-14umLdHRPJSzAhOgF7EDJro1CgTY6UD2iMntt6l03Yc="},{"Name":"label","Value":"_content/Hana/images/profiles/5df4117b-053c-4b71-beea-380c232205c3.jpeg"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"173677"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u002214umLdHRPJSzAhOgF7EDJro1CgTY6UD2iMntt6l03Yc=\u0022"},{"Name":"Last-Modified","Value":"Thu, 23 Jan 2025 12:29:12 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Hana/images/profiles/d8c4fa96-7df4-4746-aee1-143a5840614c.aflwfud2ym.jpg">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\d8c4fa96-7df4-4746-aee1-143a5840614c.jpg'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"aflwfud2ym"},{"Name":"integrity","Value":"sha256-disBecu/AY5FlFdZ7Wfno\u002B67dfnA3PcS7iV3ffz/e5k="},{"Name":"label","Value":"_content/Hana/images/profiles/d8c4fa96-7df4-4746-aee1-143a5840614c.jpg"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"10809"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022disBecu/AY5FlFdZ7Wfno\u002B67dfnA3PcS7iV3ffz/e5k=\u0022"},{"Name":"Last-Modified","Value":"Thu, 23 Jan 2025 12:29:24 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Hana/images/profiles/d8c4fa96-7df4-4746-aee1-143a5840614c.jpg">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\d8c4fa96-7df4-4746-aee1-143a5840614c.jpg'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-disBecu/AY5FlFdZ7Wfno\u002B67dfnA3PcS7iV3ffz/e5k="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"10809"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022disBecu/AY5FlFdZ7Wfno\u002B67dfnA3PcS7iV3ffz/e5k=\u0022"},{"Name":"Last-Modified","Value":"Thu, 23 Jan 2025 12:29:24 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-m9NIJmA0E\u002BWTplMvDGMkuD9VTk4DBFMF/EEgbRb2Xxo="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"245422"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022m9NIJmA0E\u002BWTplMvDGMkuD9VTk4DBFMF/EEgbRb2Xxo=\u0022"},{"Name":"Last-Modified","Value":"Thu, 23 Jan 2025 12:58:08 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Hana/js/chat.dl4wubx7yu.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\chat.js'))</AssetFile>

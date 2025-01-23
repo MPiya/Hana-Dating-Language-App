@@ -1,66 +1,78 @@
 @model Hana.Models.UserProfile
 
+<style>
+    .info-card {
+        transition: transform 0.2s;
+        border: 1px solid #dee2e6;
+    }
+    .info-card:hover {
+        transform: translateY(-5px);
+    }
+    .profile-gallery img {
+        transition: transform 0.3s;
+    }
+    .profile-gallery img:hover {
+        transform: scale(1.05);
+    }
+</style>
+ 
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    <h2 class="mb-0">@Model.Name's Profile</h2>
+            <div class="card shadow-lg rounded-lg">
+                <div class="card-header text-center position-relative" style="background: linear-gradient(45deg, #ff6b6b, #ff8e8e); padding: 20px;">
+                    <h2 class="text-white mb-0" style="font-size: 2.5rem;">@Model.Name</h2>
+                    <p class="text-white mb-0">@Model.Age years old • @Model.Nationality</p>
                 </div>
-                <div class="card-body">
-                    <div class="row mb-3">
-                        <div class="col-md-4 font-weight-bold">Age:</div>
-                        <div class="col-md-8">@Model.Age</div>
-                    </div>
 
-                    <div class="row mb-3">
-                        <div class="col-md-4 font-weight-bold">Nationality:</div>
-                        <div class="col-md-8">@Model.Nationality</div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-4 font-weight-bold">Gender:</div>
-                        <div class="col-md-8">@Model.Gender</div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-4 font-weight-bold">Languages:</div>
-                        <div class="col-md-8">
-                            <div>Speaks: @Model.SpeakLanguage</div>
-                            <div>Learning: @Model.LearnLanguage</div>
-                        </div>
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-4 font-weight-bold">Interests:</div>
-                        <div class="col-md-8">@Model.Interest</div>
-                    </div>
-
-                    <div class="row mb-4">
-                        <div class="col-md-4 font-weight-bold">Bio:</div>
-                        <div class="col-md-8">@Model.Bio</div>
-                    </div>
-
-                    @if (!string.IsNullOrEmpty(Model.InstagramAccount))
-                    {
-                        <div class="row mb-3">
-                            <div class="col-md-4 font-weight-bold">Instagram:</div>
-                            <div class="col-md-8">@Model.InstagramAccount</div>
-                        </div>
-                    }
-
-                    <div class="row mb-4">
-                        <div class="col-md-4 font-weight-bold">Profile Pictures:</div>
-                        <div class="col-md-8">
+                <div class="card-body p-4">
+                    <!-- Profile Pictures Gallery -->
+                    <div class="profile-gallery mb-4">
+                        <div class="row">
                             @foreach (var imageUrl in Model.ImageUrls)
                             {
-                                <img src="@imageUrl" alt="Profile Picture" style="max-width: 100px; margin: 5px;" />
+                                <div class="col-4 mb-3">
+                                    <img src="@imageUrl" alt="Profile Picture" class="img-fluid rounded shadow-sm" style="width: 100%; height: 200px; object-fit: cover;" />
+                                </div>
                             }
                         </div>
                     </div>
 
+                    <!-- Profile Info Cards -->
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="info-card p-3 rounded" style="background-color: #f8f9fa;">
+                                <h5 class="text-primary"><i class="fas fa-language mr-2"></i> Languages</h5>
+                                <p class="mb-1"><strong>Speaks:</strong> @Model.SpeakLanguage</p>
+                                <p><strong>Learning:</strong> @Model.LearnLanguage</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <div class="info-card p-3 rounded" style="background-color: #f8f9fa;">
+                                <h5 class="text-primary"><i class="fas fa-heart mr-2"></i> Interests</h5>
+                                <p>@Model.Interest</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bio Section -->
+                    <div class="bio-section mt-3 p-3 rounded" style="background-color: #f8f9fa;">
+                        <h5 class="text-primary"><i class="fas fa-user mr-2"></i> About Me</h5>
+                        <p class="lead">@Model.Bio</p>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.InstagramAccount))
+                    {
+                        <div class="social-section mt-3">
+                            <a href="https://instagram.com/@Model.InstagramAccount" target="_blank" class="btn btn-outline-primary">
+                                <i class="fab fa-instagram"></i> @Model.InstagramAccount
+                            </a>
+                        </div>
+                    }
+
                     <div class="text-center mt-4">
-                        <a asp-action="Edit" class="btn btn-primary">Edit Profile</a>
+                        <a asp-action="Edit" class="btn btn-lg btn-primary rounded-pill px-5">Edit Profile</a>
                     </div>
                 </div>
             </div>
@@ -70,4 +82,6 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 } 
