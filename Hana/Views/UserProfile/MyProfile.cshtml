@@ -49,6 +49,16 @@
                         </div>
                     }
 
+                    <div class="row mb-4">
+                        <div class="col-md-4 font-weight-bold">Profile Pictures:</div>
+                        <div class="col-md-8">
+                            @foreach (var imageUrl in Model.ImageUrls)
+                            {
+                                <img src="@imageUrl" alt="Profile Picture" style="max-width: 100px; margin: 5px;" />
+                            }
+                        </div>
+                    </div>
+
                     <div class="text-center mt-4">
                         <a asp-action="Edit" class="btn btn-primary">Edit Profile</a>
                     </div>

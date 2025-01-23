@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -40,5 +41,8 @@ namespace Hana.Models
 
         [ForeignKey("UserId")]
         public virtual UserIdentity User { get; set; }  // Navigation property
+
+        // New property to store image URLs
+        public List<string> ImageUrls { get; set; } = new List<string>();
     }
 }

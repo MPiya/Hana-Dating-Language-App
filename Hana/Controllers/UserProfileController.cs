@@ -4,6 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Hana.Hana.Database.Data;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using System.Linq;
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Hana.Controllers
 {
@@ -12,11 +18,13 @@ namespace Hana.Controllers
     {
         private readonly HanaContext _context;
         private readonly UserManager<UserIdentity> _userManager;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public UserProfileController(HanaContext context, UserManager<UserIdentity> userManager)
+        public UserProfileController(HanaContext context, UserManager<UserIdentity> userManager, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _userManager = userManager;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public async Task<IActionResult> MyProfile()
@@ -45,18 +53,14 @@ namespace Hana.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(UserProfile userProfile)
+        public async Task<IActionResult> Create(UserProfile userProfile, List<IFormFile> profilePictures)
         {
-            // Remove validation for UserId and User since we'll set them
             ModelState.Remove("UserId");
             ModelState.Remove("User");
 
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid || profilePictures.Count < 1 || profilePictures.Count > 5)
             {
-                foreach (var modelError in ModelState.Values.SelectMany(v => v.Errors))
-                {
-                    ModelState.AddModelError(string.Empty, modelError.ErrorMessage);
-                }
+                ModelState.AddModelError(string.Empty, "Please upload between 1 and 5 images.");
                 return View(userProfile);
             }
 
@@ -66,10 +70,9 @@ namespace Hana.Controllers
                 return NotFound();
             }
 
-            // Check if profile already exists
             var existingProfile = await _context.UserProfiles
                 .FirstOrDefaultAsync(p => p.UserId == user.Id);
-            
+
             if (existingProfile != null)
             {
                 // Update existing profile
@@ -82,14 +85,60 @@ namespace Hana.Controllers
                 existingProfile.LearnLanguage = userProfile.LearnLanguage;
                 existingProfile.Gender = userProfile.Gender;
                 existingProfile.InstagramAccount = userProfile.InstagramAccount;
-                
+
+                // Handle file uploads
+                foreach (var file in profilePictures)
+                {
+                    if (file.Length > 0 && file.Length <= 1 * 1024 * 1024) // Limit file size to 1MB
+                    {
+                        var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
+                        if (new[] { ".jpg", ".jpeg", ".png" }.Contains(extension))
+                        {
+                            var fileName = $"{Guid.NewGuid()}{extension}";
+                            var directoryPath = Path.Combine("wwwroot", "images", "profiles");
+                            var filePath = Path.Combine(directoryPath, fileName);
+
+                            // Ensure the directory exists
+                            if (!Directory.Exists(directoryPath))
+                            {
+                                Directory.CreateDirectory(directoryPath);
+                            }
+
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                await file.CopyToAsync(stream);
+                            }
+                            existingProfile.ImageUrls.Add("/images/profiles/" + fileName);
+                        }
+                    }
+                }
+
                 _context.Update(existingProfile);
             }
             else
             {
-                // Set the UserId before creating new profile
                 userProfile.UserId = user.Id;
                 userProfile.User = user;
+
+                // Handle file uploads
+                foreach (var file in profilePictures)
+                {
+                    if (file.Length > 0 && file.Length <= 1 * 1024 * 1024) // Limit file size to 1MB
+                    {
+                        var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
+                        if (new[] { ".jpg", ".jpeg", ".png" }.Contains(extension))
+                        {
+                            var fileName = $"{Guid.NewGuid()}{extension}";
+                            var filePath = Path.Combine("wwwroot/images/profiles", fileName);
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                await file.CopyToAsync(stream);
+                            }
+                            userProfile.ImageUrls.Add("/images/profiles/" + fileName);
+                        }
+                    }
+                }
+
                 _context.Add(userProfile);
             }
 
@@ -100,10 +149,142 @@ namespace Hana.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError(string.Empty, "Error saving profile: " + ex.Message);
+                ModelState.AddModelError(string.Empty, "An error occurred while saving the profile.");
                 return View(userProfile);
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var profile = await _context.UserProfiles
+                .Include(p => p.User)
+                .FirstOrDefaultAsync(p => p.UserId == user.Id);
+
+            if (profile == null)
+            {
+                return RedirectToAction(nameof(Create));
+            }
+
+            return View(profile);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(UserProfile userProfile, List<IFormFile> profilePictures)
+        {
+            ModelState.Remove("UserId");
+            ModelState.Remove("User");
+
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var existingProfile = await _context.UserProfiles
+                .FirstOrDefaultAsync(p => p.UserId == user.Id);
+
+            // Check total number of images
+            int currentImageCount = existingProfile.ImageUrls.Count;
+            if (currentImageCount + profilePictures.Count > 5)
+            {
+                ModelState.AddModelError("", $"Maximum 5 pictures allowed. You currently have {currentImageCount} pictures.");
+                return View(existingProfile);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(existingProfile);
+            }
+
+            if (existingProfile != null)
+            {
+                // Update existing profile
+                existingProfile.Name = userProfile.Name;
+                existingProfile.Age = userProfile.Age;
+                existingProfile.Bio = userProfile.Bio;
+                existingProfile.Interest = userProfile.Interest;
+                existingProfile.Nationality = userProfile.Nationality;
+                existingProfile.SpeakLanguage = userProfile.SpeakLanguage;
+                existingProfile.LearnLanguage = userProfile.LearnLanguage;
+                existingProfile.Gender = userProfile.Gender;
+                existingProfile.InstagramAccount = userProfile.InstagramAccount;
+
+                // Handle file uploads
+                foreach (var file in profilePictures)
+                {
+                    if (file.Length > 0 && file.Length <= 1 * 1024 * 1024) // Limit file size to 1MB
+                    {
+                        var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
+                        if (new[] { ".jpg", ".jpeg", ".png" }.Contains(extension))
+                        {
+                            var fileName = $"{Guid.NewGuid()}{extension}";
+                            var directoryPath = Path.Combine("wwwroot", "images", "profiles");
+                            var filePath = Path.Combine(directoryPath, fileName);
+
+                            // Ensure the directory exists
+                            if (!Directory.Exists(directoryPath))
+                            {
+                                Directory.CreateDirectory(directoryPath);
+                            }
+
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                await file.CopyToAsync(stream);
+                            }
+                            existingProfile.ImageUrls.Add("/images/profiles/" + fileName);
+                        }
+                    }
+                }
+
+                _context.Update(existingProfile);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(MyProfile));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteImage([FromBody] string imageUrl)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var profile = await _context.UserProfiles
+                .FirstOrDefaultAsync(p => p.UserId == user.Id);
+
+            if (profile == null)
+            {
+                return NotFound();
+            }
+
+            if (profile.ImageUrls.Remove(imageUrl))
+            {
+                var filePath = Path.Combine(_webHostEnvironment.WebRootPath, imageUrl.TrimStart('/'));
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+
+            return NotFound();
+        }
+
+
 
         public async Task<IActionResult> ShowUsers()
         {
