@@ -1,4 +1,5 @@
-﻿@page
+﻿@model IEnumerable<Hana.Models.UserProfile>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,69 +7,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Users</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
-
         .container {
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        form {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: space-between;
         }
 
-        label {
-            margin-bottom: 10px;
-            font-weight: bold;
+        .search-form {
+            width: 30%; /* Adjust width as needed */
+            margin-right: 20px; /* Space between form and results */
         }
 
-        input[type="text"], select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
+        .results {
+            width: 65%; /* Adjust width as needed */
+            padding: 20px; /* Add padding for better spacing */
+            border: 1px solid #dee2e6; /* Add a border for better visibility */
+            border-radius: 5px; /* Rounded corners */
+            background-color: #f8f9fa; /* Light background color */
         }
 
-        button[type="submit"] {
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .card {
+            margin-bottom: 20px; /* Space between cards */
         }
-
-            button[type="submit"]:hover {
-                background-color: #45a049;
-            }
     </style>
 </head>
 <body>
-    <div class="container">
-        <form method="post" action="/Matching/SearchUsersView">
-            <label for="nationality">Nationality:</label>
-            <input type="text" id="nationality" name="nationality" required>
-            <label for="gender">Gender:</label>
-            <select id="gender" name="gender" required>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-            <button type="submit">Submit</button>
-        </form>
+    <div class="container mt-4">
+        <div class="search-form">
+            <h2>Filter Users</h2>
+            <form method="post" action="/Matching/SearchUsersView">
+                <div class="form-group">
+                    <label for="ageFrom">Age From:</label>
+                    <input type="number" id="ageFrom" name="AgeFrom" min="16" max="110" required class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="ageTo">Age To:</label>
+                    <input type="number" id="ageTo" name="AgeTo" min="16" max="110" required class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="Gender" class="form-control">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Both">Both</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nationality">Nationality:</label>
+                    <input type="text" id="nationality" name="Nationality" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+
+        <div class="results mt-4">
+            <h3>Results</h3>
+            <div class="row">
+                @foreach (var user in Model)
+                {
+                    <div class="col-md-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@user.Name</h5>
+                                <img src="@(!string.IsNullOrEmpty(user.ImageUrls.FirstOrDefault()) ? user.ImageUrls.FirstOrDefault() : "/path/to/default/image.jpg")" alt="User Image" class="img-fluid rounded" style="max-height: 200px; width: auto;" />
+                                <p class="card-text">
+                                    <strong>Age:</strong> @user.Age<br />
+                                    <strong>Gender:</strong> @user.Gender<br />
+                                    <strong>Nationality:</strong> @user.Nationality<br />
+                                </p>
+                                <a asp-controller="UserProfile" asp-action="ViewUserProfile" asp-route-id="@user.Id" class="btn btn-primary">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
     </div>
 </body>
 </html>

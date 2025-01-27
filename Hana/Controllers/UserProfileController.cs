@@ -10,6 +10,7 @@ using System.Linq;
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using AspNetCoreGeneratedDocument;
 
 namespace Hana.Controllers
 {
@@ -45,6 +46,25 @@ namespace Hana.Controllers
 
             return View(profile);
         }
+
+        //[HttpGet("ViewProfile/{id}")]
+    [HttpGet("ViewProfile/{id}")]
+        public async Task<IActionResult> ViewUserProfile(int id)
+        {
+            var profile = await _context.UserProfiles
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (profile == null)
+            {
+                return NotFound();
+            }
+                    return View("MyProfile", profile);
+                }
+
+
+
+
+
 
         public IActionResult Create()
         {

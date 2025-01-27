@@ -1926,23 +1926,41 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Hana.dt3hxj35ge.bundle.scp.css'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\73f8bfef-a9b4-493b-8b43-bb3e8afe82b4.jpg'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\1ba2b17a-f8ee-480f-b7b1-9a01089168d3.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>Hana</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Hana</BasePath>
-      <RelativePath>images/profiles/73f8bfef-a9b4-493b-8b43-bb3e8afe82b4.jpg</RelativePath>
+      <RelativePath>images/profiles/1ba2b17a-f8ee-480f-b7b1-9a01089168d3.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>5srjpo4rkq</Fingerprint>
-      <Integrity>m9NIJmA0E+WTplMvDGMkuD9VTk4DBFMF/EEgbRb2Xxo=</Integrity>
+      <Fingerprint>uo60oqx9kb</Fingerprint>
+      <Integrity>Is7SYyqX3Eappv9kZZ0LO3Nn4TkUEQhfbf/YBOsDtq8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\73f8bfef-a9b4-493b-8b43-bb3e8afe82b4.jpg'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\1ba2b17a-f8ee-480f-b7b1-9a01089168d3.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\80fab7c7-afae-4e1a-bdd4-e2d2d9ecf818.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Hana</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Hana</BasePath>
+      <RelativePath>images/profiles/80fab7c7-afae-4e1a-bdd4-e2d2d9ecf818.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>q9rq1z6v0p</Fingerprint>
+      <Integrity>csb24RQrFrnO/mfAV8nDLJvwRSk1OIvsM2MhqvYJBMs=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\80fab7c7-afae-4e1a-bdd4-e2d2d9ecf818.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\chat.js'))">
       <SourceType>Package</SourceType>

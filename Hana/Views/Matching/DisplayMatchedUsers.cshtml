@@ -1,51 +1,69 @@
 ﻿@model IEnumerable<Hana.Models.UserProfile>
 
 <div class="container mt-4">
-    <h2 class="mb-4">Matched Users</h2>
-
-    @if (!Model.Any())
-    {
-        <div class="alert alert-info">
-            @(ViewBag.Message ?? "No users found matching your criteria.")
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Filter Users</h2>
+            <form method="post" action="/Matching/SearchUsersView">
+                <div class="form-group">
+                    <label for="ageFrom">Age From:</label>
+                    <input type="number" id="ageFrom" name="AgeFrom" min="16" max="110" required class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="ageTo">Age To:</label>
+                    <input type="number" id="ageTo" name="AgeTo" min="16" max="110" required class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="Gender" class="form-control">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Both">Both</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nationality">Nationality:</label>
+                    <input type="text" id="nationality" name="Nationality" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
         </div>
-    }
-    else
-    {
-        <div class="row">
-            @foreach (var user in Model)
+
+        <div class="col-md-9">
+            <h2>Matched Users</h2>
+
+            @if (!Model.Any())
             {
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">@user.Name</h5>
-                            <p class="card-text">
-                                <strong>Age:</strong> @user.Age<br />
-                                <strong>Gender:</strong> @user.Gender<br />
-                                <strong>Nationality:</strong> @user.Nationality<br />
-                                <strong>Languages:</strong><br />
-                                Speaks: @user.SpeakLanguage<br />
-                                Learning: @user.LearnLanguage
-                            </p>
-                            @if (!string.IsNullOrEmpty(user.InstagramAccount))
-                            {
-                                <p class="card-text">
-                                    <strong>Instagram:</strong> @user.InstagramAccount
-                                </p>
-                            }
-                            @if (!string.IsNullOrEmpty(user.Bio))
-                            {
-                                <p class="card-text">
-                                    <strong>Bio:</strong> @user.Bio
-                                </p>
-                            }
-                        </div>
-                    </div>
+                <div class="alert alert-info">
+                    No users found matching your criteria.
                 </div>
             }
-        </div>
-    }
+            else
+            {
+                <div class="row">
+                    @foreach (var user in Model)
+                    {
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">@user.Name</h5>
+                                    <img src="@(!string.IsNullOrEmpty(user.ImageUrls.FirstOrDefault()) ? user.ImageUrls.FirstOrDefault() : "/path/to/default/image.jpg")" alt="User Image" class="img-fluid rounded" style="max-height: 200px; width: auto;" />
+                                    <p class="card-text">
+                                        <strong>Age:</strong> @user.Age<br />
+                                        <strong>Gender:</strong> @user.Gender<br />
+                                        <strong>Nationality:</strong> @user.Nationality<br />
+                                    </p>
+                                    <a asp-controller="UserProfile" asp-action="ViewUserProfile" asp-route-id="@user.Id" class="btn btn-primary">View Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
 
-    <div class="mt-4">
-        <a asp-action="SearchForm" class="btn btn-primary">Back to Search</a>
+            <div class="mt-4">
+                <a asp-action="SearchForm" class="btn btn-primary">Back to Search</a>
+            </div>
+        </div>
     </div>
 </div>
