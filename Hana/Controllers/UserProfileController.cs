@@ -289,7 +289,7 @@ namespace Hana.Controllers
             {
                 return NotFound();
             }
-
+                
             if (profile.ImageUrls.Remove(imageUrl))
             {
                 var filePath = Path.Combine(_webHostEnvironment.WebRootPath, imageUrl.TrimStart('/'));
@@ -337,7 +337,45 @@ namespace Hana.Controllers
             public List<string> ImageUrls { get; set; }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CropImage([FromForm] IFormFile image, [FromForm] string imageUrl)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return NotFound();
 
+            var profile = await _context.UserProfiles
+                .FirstOrDefaultAsync(p => p.UserId == user.Id);
+            if (profile == null) return NotFound();
+
+            try
+            {
+                // Generate a new filename for the cropped version
+                var originalFileName = Path.GetFileNameWithoutExtension(imageUrl);
+                var extension = Path.GetExtension(imageUrl);
+                var croppedFileName = $"{originalFileName}_cropped{extension}";
+                var newPath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "profiles", croppedFileName);
+                
+                using (var stream = new FileStream(newPath, FileMode.Create))
+                {
+                    await image.CopyToAsync(stream);
+                }
+
+                // Update the ImageUrls to include cropped version
+                var index = profile.ImageUrls.IndexOf(imageUrl);
+                if (index != -1)
+                {
+                    profile.ImageUrls[index] = $"/images/profiles/{croppedFileName}";
+                    await _context.SaveChangesAsync();
+                }
+
+                return Ok(new { croppedUrl = $"/images/profiles/{croppedFileName}" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
 
     }
 }

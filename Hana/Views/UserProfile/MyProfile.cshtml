@@ -43,17 +43,17 @@
         position: absolute;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0,0,0,0.5);
-        display: flex;
-        justify-content: space-between;
-        padding: 10px;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
         opacity: 0;
         transition: opacity 0.3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
-    .image-wrapper:hover .image-overlay {
+    .image-item:hover .image-overlay {
         opacity: 1;
     }
 
@@ -103,16 +103,93 @@
         position: absolute;
         top: 10px;
         right: 10px;
-        background: none;
+        background: rgba(0, 0, 0, 0.5);
         border: none;
         color: white;
         cursor: pointer;
-        padding: 5px;
-        z-index: 3;
+        padding: 8px;
+        border-radius: 4px;
+        transition: all 0.2s ease;
     }
 
     .delete-btn:hover {
         color: #ff6b6b;
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .crop-btn {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+    }
+
+    .crop-btn:hover {
+        color: #4CAF50;
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
+
+    .modal-content {
+        position: relative;
+        background: white;
+        width: 80%;
+        max-width: 800px;
+        margin: 2rem auto;
+        border-radius: 8px;
+    }
+
+    .modal-header {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .modal-body {
+        padding: 1rem;
+        max-height: 70vh;
+        overflow: hidden;
+    }
+
+    .modal-footer {
+        padding: 1rem;
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        border-top: 1px solid #ddd;
+    }
+
+    .close-modal {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .button-group {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        gap: 8px;
     }
 </style>
 
@@ -144,6 +221,9 @@
                                         <div class="image-overlay">
                                             <button class="delete-btn" onclick="deleteImage('@imageUrl')">
                                                 <i class="fas fa-trash"></i>
+                                            </button>
+                                            <button class="crop-btn" onclick="openCropModal('@imageUrl')">
+                                                <i class="fas fa-crop-alt"></i>
                                             </button>
                                         </div>
                                     </div>
@@ -220,12 +300,33 @@
     </div>
 </div>
 
+<!-- Crop Modal -->
+<div class="modal" id="cropModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5>Crop Image</h5>
+            <button type="button" class="close-modal" onclick="closeCropModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="img-container">
+                <img id="cropImage" src="" alt="Image to crop">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" onclick="closeCropModal()">Cancel</button>
+            <button type="button" id="cropButton">Crop & Save</button>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const gallery = document.getElementById('sortableGallery');
@@ -280,5 +381,90 @@
                 console.error('Error deleting image:', error);
             }
         }
+
+        let cropper = null;
+        let currentImageUrl = '';
+        let originalImageUrl = '';
+
+        function openCropModal(imageUrl) {
+            // Extract the original image URL from the current URL
+            originalImageUrl = imageUrl.replace('_cropped.jpg', '.jpg');
+            currentImageUrl = imageUrl;
+            
+            const modal = document.getElementById('cropModal');
+            const image = document.getElementById('cropImage');
+            
+            // Always use the original image for cropping
+            image.src = originalImageUrl;
+            modal.style.display = 'block';
+            
+            image.onload = function() {
+                if (cropper) {
+                    cropper.destroy();
+                }
+                
+                cropper = new Cropper(image, {
+                    aspectRatio: 1,
+                    viewMode: 2,
+                });
+            };
+        }
+
+        function closeCropModal() {
+            const modal = document.getElementById('cropModal');
+            if (cropper) {
+                cropper.destroy();
+                cropper = null;
+            }
+            modal.style.display = 'none';
+        }
+
+        document.getElementById('cropButton').addEventListener('click', async function() {
+            if (!cropper) return;
+
+            try {
+                const canvas = cropper.getCroppedCanvas();
+                const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg'));
+                
+                const formData = new FormData();
+                formData.append('image', blob, 'cropped.jpg');
+                formData.append('imageUrl', originalImageUrl);
+
+                const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+                const response = await fetch('/UserProfile/CropImage', {
+                    method: 'POST',
+                    headers: {
+                        'RequestVerificationToken': token
+                    },
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    // Find and update all images with either the current URL or original URL
+                    const allImages = document.querySelectorAll('img');
+                    allImages.forEach(img => {
+                        if (img.src.includes(currentImageUrl) || img.src.includes(originalImageUrl)) {
+                            // Add timestamp to force browser to reload the image
+                            img.src = `${result.croppedUrl}?t=${new Date().getTime()}`;
+                        }
+                    });
+                    currentImageUrl = result.croppedUrl;
+                    closeCropModal();
+                } else {
+                    const errorText = await response.text();
+                    console.error('Server response:', errorText);
+                }
+            } catch (error) {
+                console.error('Error cropping image:', error);
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('cropModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCropModal();
+            }
+        });
     </script>
 }
