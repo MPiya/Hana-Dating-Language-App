@@ -11,6 +11,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using AspNetCoreGeneratedDocument;
+using System.Security.Claims;
 
 namespace Hana.Controllers
 {
@@ -313,5 +314,30 @@ namespace Hana.Controllers
                 .ToListAsync();
             return View(profiles);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateImageOrder([FromBody] UpdateImageOrderRequest request)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return NotFound();
+
+            var profile = await _context.UserProfiles
+                .FirstOrDefaultAsync(p => p.UserId == user.Id);
+            if (profile == null) return NotFound();
+
+            profile.ImageUrls = request.ImageUrls;
+            await _context.SaveChangesAsync();
+            
+            return Ok();
+        }
+
+        public class UpdateImageOrderRequest
+        {
+            public List<string> ImageUrls { get; set; }
+        }
+
+
+
     }
 }
