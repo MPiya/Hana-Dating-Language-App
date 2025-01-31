@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Wj+7VLoWPLT223pd9nnAKg5Tu5Du4kV63F88I6NO1po=",
+  "Hash": "IIRV1e3KDgsA8xdpmcnXpnmRyzxlnMejmta1GgDKW3g=",
   "Source": "Hana",
   "BasePath": "_content/Hana",
   "Mode": "Default",
@@ -3608,12 +3608,12 @@
       "OriginalItemSpec": "wwwroot\\images\\profiles\\1ba2b17a-f8ee-480f-b7b1-9a01089168d3.jpg"
     },
     {
-      "Identity": "F:\\repos\\Hana-Dating-Language-App\\Hana\\wwwroot\\images\\profiles\\80fab7c7-afae-4e1a-bdd4-e2d2d9ecf818.jpg",
+      "Identity": "F:\\repos\\Hana-Dating-Language-App\\Hana\\wwwroot\\images\\profiles\\89690b63-0662-4ac5-bce2-f7f03a60eb1c.jpg",
       "SourceId": "Hana",
       "SourceType": "Discovered",
       "ContentRoot": "F:\\repos\\Hana-Dating-Language-App\\Hana\\wwwroot\\",
       "BasePath": "_content/Hana",
-      "RelativePath": "images/profiles/80fab7c7-afae-4e1a-bdd4-e2d2d9ecf818#[.{fingerprint}]?.jpg",
+      "RelativePath": "images/profiles/89690b63-0662-4ac5-bce2-f7f03a60eb1c#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3622,11 +3622,32 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "q9rq1z6v0p",
-      "Integrity": "csb24RQrFrnO/mfAV8nDLJvwRSk1OIvsM2MhqvYJBMs=",
+      "Fingerprint": "wrztgpidvq",
+      "Integrity": "XM6IEB4x0MAMMcHi/ZC9YpwF60OnxduPpCXeizM8H+o=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\profiles\\80fab7c7-afae-4e1a-bdd4-e2d2d9ecf818.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\profiles\\89690b63-0662-4ac5-bce2-f7f03a60eb1c.jpg"
+    },
+    {
+      "Identity": "F:\\repos\\Hana-Dating-Language-App\\Hana\\wwwroot\\images\\profiles\\deab465f-2b7c-426d-b9de-ccf124b526ce.jpg",
+      "SourceId": "Hana",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\repos\\Hana-Dating-Language-App\\Hana\\wwwroot\\",
+      "BasePath": "_content/Hana",
+      "RelativePath": "images/profiles/deab465f-2b7c-426d-b9de-ccf124b526ce#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nk4sh53j9n",
+      "Integrity": "2SSy2mQMPM/AnS92j/+sNr5GVqfsCSpXrFDT0OuP190=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\profiles\\deab465f-2b7c-426d-b9de-ccf124b526ce.jpg"
     },
     {
       "Identity": "F:\\repos\\Hana-Dating-Language-App\\Hana\\wwwroot\\js\\chat.js",
@@ -14934,8 +14955,8 @@
       ]
     },
     {
-      "Route": "images/profiles/80fab7c7-afae-4e1a-bdd4-e2d2d9ecf818.jpg",
-      "AssetFile": "F:\\repos\\Hana-Dating-Language-App\\Hana\\wwwroot\\images\\profiles\\80fab7c7-afae-4e1a-bdd4-e2d2d9ecf818.jpg",
+      "Route": "images/profiles/89690b63-0662-4ac5-bce2-f7f03a60eb1c.jpg",
+      "AssetFile": "F:\\repos\\Hana-Dating-Language-App\\Hana\\wwwroot\\images\\profiles\\89690b63-0662-4ac5-bce2-f7f03a60eb1c.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14944,7 +14965,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "52210"
+          "Value": "51235"
         },
         {
           "Name": "Content-Type",
@@ -14952,11 +14973,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"csb24RQrFrnO/mfAV8nDLJvwRSk1OIvsM2MhqvYJBMs=\""
+          "Value": "\"XM6IEB4x0MAMMcHi/ZC9YpwF60OnxduPpCXeizM8H+o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 27 Jan 2025 15:10:10 GMT"
+          "Value": "Thu, 30 Jan 2025 20:07:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -14966,13 +14987,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-csb24RQrFrnO/mfAV8nDLJvwRSk1OIvsM2MhqvYJBMs="
+          "Value": "sha256-XM6IEB4x0MAMMcHi/ZC9YpwF60OnxduPpCXeizM8H+o="
         }
       ]
     },
     {
-      "Route": "images/profiles/80fab7c7-afae-4e1a-bdd4-e2d2d9ecf818.q9rq1z6v0p.jpg",
-      "AssetFile": "F:\\repos\\Hana-Dating-Language-App\\Hana\\wwwroot\\images\\profiles\\80fab7c7-afae-4e1a-bdd4-e2d2d9ecf818.jpg",
+      "Route": "images/profiles/89690b63-0662-4ac5-bce2-f7f03a60eb1c.wrztgpidvq.jpg",
+      "AssetFile": "F:\\repos\\Hana-Dating-Language-App\\Hana\\wwwroot\\images\\profiles\\89690b63-0662-4ac5-bce2-f7f03a60eb1c.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -14981,7 +15002,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "52210"
+          "Value": "51235"
         },
         {
           "Name": "Content-Type",
@@ -14989,11 +15010,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"csb24RQrFrnO/mfAV8nDLJvwRSk1OIvsM2MhqvYJBMs=\""
+          "Value": "\"XM6IEB4x0MAMMcHi/ZC9YpwF60OnxduPpCXeizM8H+o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 27 Jan 2025 15:10:10 GMT"
+          "Value": "Thu, 30 Jan 2025 20:07:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15003,15 +15024,97 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "q9rq1z6v0p"
+          "Value": "wrztgpidvq"
         },
         {
           "Name": "label",
-          "Value": "images/profiles/80fab7c7-afae-4e1a-bdd4-e2d2d9ecf818.jpg"
+          "Value": "images/profiles/89690b63-0662-4ac5-bce2-f7f03a60eb1c.jpg"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-csb24RQrFrnO/mfAV8nDLJvwRSk1OIvsM2MhqvYJBMs="
+          "Value": "sha256-XM6IEB4x0MAMMcHi/ZC9YpwF60OnxduPpCXeizM8H+o="
+        }
+      ]
+    },
+    {
+      "Route": "images/profiles/deab465f-2b7c-426d-b9de-ccf124b526ce.jpg",
+      "AssetFile": "F:\\repos\\Hana-Dating-Language-App\\Hana\\wwwroot\\images\\profiles\\deab465f-2b7c-426d-b9de-ccf124b526ce.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18578"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2SSy2mQMPM/AnS92j/+sNr5GVqfsCSpXrFDT0OuP190=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 19:50:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2SSy2mQMPM/AnS92j/+sNr5GVqfsCSpXrFDT0OuP190="
+        }
+      ]
+    },
+    {
+      "Route": "images/profiles/deab465f-2b7c-426d-b9de-ccf124b526ce.nk4sh53j9n.jpg",
+      "AssetFile": "F:\\repos\\Hana-Dating-Language-App\\Hana\\wwwroot\\images\\profiles\\deab465f-2b7c-426d-b9de-ccf124b526ce.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18578"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2SSy2mQMPM/AnS92j/+sNr5GVqfsCSpXrFDT0OuP190=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Jan 2025 19:50:19 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nk4sh53j9n"
+        },
+        {
+          "Name": "label",
+          "Value": "images/profiles/deab465f-2b7c-426d-b9de-ccf124b526ce.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2SSy2mQMPM/AnS92j/+sNr5GVqfsCSpXrFDT0OuP190="
         }
       ]
     },

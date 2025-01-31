@@ -5,17 +5,31 @@
         transition: transform 0.2s;
         border: 1px solid #dee2e6;
     }
-    .info-card:hover {
-        transform: translateY(-5px);
-    }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
     .profile-gallery img {
         transition: transform 0.3s;
     }
-    .profile-gallery img:hover {
-        transform: scale(1.05);
+
+        .profile-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+    .form-row {
+        margin-bottom: 10px; /* Adjust this value as needed */
+    }
+
+    .message-section, .social-media-section {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 20px;
     }
 </style>
- 
+
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-8 offset-md-2">
@@ -62,6 +76,32 @@
                         <p class="lead">@Model.Bio</p>
                     </div>
 
+                    <div class="combined-section mt-3">
+                        <h5 class="text-primary"><i class="fas fa-comment mr-2"></i> Send a Message & Attach Social Media</h5>
+                        <form method="post" action="/UserProfile/SendMessageAndAttachSocialMedia">
+                            <div class="form-group">
+                                <textarea name="Message" class="form-control" rows="3" placeholder="Type your message here..." required></textarea>
+                            </div>
+                            <div class="form-row d-flex align-items-end">
+                                <div class="col-md-6">
+                                    <label for="socialMedia">Choose Social Media:</label>
+                                    <select name="SocialMedia" id="socialMedia" class="form-control" required>
+                                        <option value="">Select...</option>
+                                        <option value="Instagram">Instagram</option>
+                                        <option value="Facebook">Facebook</option>
+                                        <option value="Twitter">Twitter</option>
+                                        <option value="LinkedIn">LinkedIn</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="account">Account Link:</label>
+                                    <input type="text" name="Account" class="form-control" placeholder="Enter your account link" required />
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Send Message & Attach</button>
+                        </form>
+                    </div>
+
                     @if (!string.IsNullOrEmpty(Model.InstagramAccount))
                     {
                         <div class="social-section mt-3">
@@ -81,7 +121,8 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <!-- Add Font Awesome for icons -->
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-} 
+}
