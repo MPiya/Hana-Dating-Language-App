@@ -3,20 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - LinkTreeClone</title>
+    <title>@ViewData["Title"] - Hana</title>
     
-@* 
-    <link rel="stylesheet" href="~/css/main.css" /> *@
-
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/css/bootwatch.css" />
-
-
-
-
+    
+    <!-- jQuery UI CSS (for better Select2 styling) -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    
+    @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
     <header>
-
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Hana</a>
@@ -49,16 +47,12 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Separated link</a>
                             </div>
-
                         </li>
                     </ul>
                     <partial name="_LoginPartial" /> 
                 </div>
             </div>
         </nav>
-
-                
-      
     </header>
 
     <div class="container">
@@ -67,11 +61,14 @@
         </main>
     </div>
 
-   
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- jQuery first -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Site JS -->
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false) *
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

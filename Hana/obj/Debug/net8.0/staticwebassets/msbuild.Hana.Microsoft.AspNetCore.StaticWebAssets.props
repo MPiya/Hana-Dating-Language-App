@@ -2010,8 +2010,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>y0oj8h4vcj</Fingerprint>
-      <Integrity>nhNivEFfCtGOvi+9BKkycb8BKyJ/UqDXRGVMsXLfFek=</Integrity>
+      <Fingerprint>pfayqap7xo</Fingerprint>
+      <Integrity>q4QVCokJv0HyBQUuETFdIF/ohB5zolRCBZVBon8x6N0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\28135412-cab6-445f-aed9-f9c478e46979_cropped.jpg'))</OriginalItemSpec>

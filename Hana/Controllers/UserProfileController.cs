@@ -38,6 +38,7 @@ namespace Hana.Controllers
             }
 
             var profile = await _context.UserProfiles
+                .Include(p => p.User)
                 .FirstOrDefaultAsync(p => p.UserId == user.Id);
 
             if (profile == null)
@@ -48,24 +49,20 @@ namespace Hana.Controllers
             return View(profile);
         }
 
-        //[HttpGet("ViewProfile/{id}")]
-    [HttpGet("ViewProfile/{id}")]
+        [HttpGet("ViewProfile/{id}")]
         public async Task<IActionResult> ViewUserProfile(int id)
         {
             var profile = await _context.UserProfiles
+                .Include(p => p.User)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (profile == null)
             {
                 return NotFound();
             }
-                    return View("MyProfile", profile);
-                }
 
-
-
-
-
+            return View("MyProfile", profile);
+        }
 
         public IActionResult Create()
         {
@@ -305,8 +302,6 @@ namespace Hana.Controllers
             return NotFound();
         }
 
-
-
         public async Task<IActionResult> ShowUsers()
         {
             var profiles = await _context.UserProfiles
@@ -376,6 +371,5 @@ namespace Hana.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-
     }
 }

@@ -1,86 +1,368 @@
 ﻿@model IEnumerable<Hana.Models.UserProfile>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Users</title>
-    <style>
-        .container {
-            display: flex;
-            justify-content: space-between;
-        }
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css" rel="stylesheet">
 
-        .search-form {
-            width: 30%; /* Adjust width as needed */
-            margin-right: 20px; /* Space between form and results */
-        }
-
-        .results {
-            width: 65%; /* Adjust width as needed */
-            padding: 20px; /* Add padding for better spacing */
-            border: 1px solid #dee2e6; /* Add a border for better visibility */
-            border-radius: 5px; /* Rounded corners */
-            background-color: #f8f9fa; /* Light background color */
-        }
-
-        .card {
-            margin-bottom: 20px; /* Space between cards */
-        }
-    </style>
-</head>
-<body>
-    <div class="container mt-4">
-        <div class="search-form">
-            <h2>Filter Users</h2>
-            <form method="post" action="/Matching/SearchUsersView">
-                <div class="form-group">
-                    <label for="ageFrom">Age From:</label>
-                    <input type="number" id="ageFrom" name="AgeFrom" min="16" max="110" required class="form-control" />
+<div class="container-fluid mt-4">
+    <div class="row">
+        <!-- Search Form Column -->
+        <div class="col-lg-3 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title h4 mb-4">Filter Users</h2>
+                    <form method="post" action="/Matching/SearchUsersView">
+                        <div class="form-group mb-3">
+                            <label for="ageFrom">Age From:</label>
+                            <input type="number" id="ageFrom" name="AgeFrom" min="16" max="110" value="16" required class="form-control" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="ageTo">Age To:</label>
+                            <input type="number" id="ageTo" name="AgeTo" min="16" max="110" value="110" required class="form-control" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="gender">Gender:</label>
+                            <select id="gender" name="Gender" class="form-control">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Both">Both</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="nationality">Nationality:</label>
+                            <select id="nationality" name="Nationality" class="form-control">
+                                <option value="">Select a country</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Search</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="ageTo">Age To:</label>
-                    <input type="number" id="ageTo" name="AgeTo" min="16" max="110" required class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="gender">Gender:</label>
-                    <select id="gender" name="Gender" class="form-control">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Both">Both</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="nationality">Nationality:</label>
-                    <input type="text" id="nationality" name="Nationality" class="form-control" />
-                </div>
-                <button type="submit" class="btn btn-primary">Search</button>
-            </form>
+            </div>
         </div>
 
-        <div class="results mt-4">
-            <h3>Results</h3>
-            <div class="row">
-                @foreach (var user in Model)
-                {
-                    <div class="col-md-12 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">@user.Name</h5>
-                                <img src="@(!string.IsNullOrEmpty(user.ImageUrls.FirstOrDefault()) ? user.ImageUrls.FirstOrDefault() : "/path/to/default/image.jpg")" alt="User Image" class="img-fluid rounded" style="max-height: 200px; width: auto;" />
-                                <p class="card-text">
-                                    <strong>Age:</strong> @user.Age<br />
-                                    <strong>Gender:</strong> @user.Gender<br />
-                                    <strong>Nationality:</strong> @user.Nationality<br />
-                                </p>
-                                <a asp-controller="UserProfile" asp-action="ViewUserProfile" asp-route-id="@user.Id" class="btn btn-primary">View Profile</a>
+        <!-- Results Column -->
+        <div class="col-lg-9">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title h4 mb-4">Search Results</h3>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+                        @foreach (var user in Model)
+                        {
+                            <div class="col">
+                                <div class="card h-100 shadow-sm hover-card">
+                                    <img src="@(!string.IsNullOrEmpty(user.ImageUrls.FirstOrDefault()) ? user.ImageUrls.FirstOrDefault() : "/images/default-profile.jpg")" 
+                                         class="card-img-top" 
+                                         alt="@user.Name's profile picture"
+                                         style="height: 200px; object-fit: cover;" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">@user.Name</h5>
+                                        <div class="card-text">
+                                            <div>@user.Age</div>
+                                            <div>@user.Gender</div>
+                                            <div class="d-flex align-items-center gap-2">
+                                                @{
+                                                    string getCountryCode(string nationality)
+                                                    {
+                                                        return nationality?.ToLower() switch
+                                                        {
+                                                            "thailand" => "th",
+                                                            "poland" => "pl",
+                                                            "south korea" => "kr",
+                                                            "united states" => "us",
+                                                            "united kingdom" => "gb",
+                                                            _ => nationality?.ToLower() ?? "xx"
+                                                        };
+                                                    }
+                                                    var code = getCountryCode(user.Nationality);
+                                                }
+                                                <span class="fi fi-@code"></span>
+                                                <span>@user.Nationality</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0 pb-3">
+                                        <a asp-controller="UserProfile" 
+                                           asp-action="ViewUserProfile" 
+                                           asp-route-id="@user.Id" 
+                                           class="btn btn-primary w-100">
+                                            View Profile
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        }
                     </div>
-                }
+                </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>
+
+@section Styles {
+    <style>
+        .hover-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15) !important;
+        }
+        .select2-container--bootstrap-5 .select2-selection {
+            min-height: 38px;
+        }
+        .select2-container--bootstrap-5 .select2-selection--single {
+            padding: 0.375rem 0.75rem;
+        }
+        .country-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .fi {
+            width: 1.2em;
+            height: 1em;
+            margin-right: 0.3em;
+            background-size: contain;
+            background-position: 50%;
+            background-repeat: no-repeat;
+            position: relative;
+            display: inline-block;
+            line-height: 1em;
+        }
+        .card-text > div {
+            margin-bottom: 0.5rem;
+        }
+        .card-text > div:last-child {
+            margin-bottom: 0;
+        }
+        .gap-2 {
+            gap: 0.5rem !important;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Countries data with ISO codes
+            const countries = [
+                { code: 'AF', name: 'Afghanistan' },
+                { code: 'AL', name: 'Albania' },
+                { code: 'DZ', name: 'Algeria' },
+                { code: 'AD', name: 'Andorra' },
+                { code: 'AO', name: 'Angola' },
+                { code: 'AG', name: 'Antigua and Barbuda' },
+                { code: 'AR', name: 'Argentina' },
+                { code: 'AM', name: 'Armenia' },
+                { code: 'AU', name: 'Australia' },
+                { code: 'AT', name: 'Austria' },
+                { code: 'AZ', name: 'Azerbaijan' },
+                { code: 'BS', name: 'Bahamas' },
+                { code: 'BH', name: 'Bahrain' },
+                { code: 'BD', name: 'Bangladesh' },
+                { code: 'BB', name: 'Barbados' },
+                { code: 'BY', name: 'Belarus' },
+                { code: 'BE', name: 'Belgium' },
+                { code: 'BZ', name: 'Belize' },
+                { code: 'BJ', name: 'Benin' },
+                { code: 'BT', name: 'Bhutan' },
+                { code: 'BO', name: 'Bolivia' },
+                { code: 'BA', name: 'Bosnia and Herzegovina' },
+                { code: 'BW', name: 'Botswana' },
+                { code: 'BR', name: 'Brazil' },
+                { code: 'BN', name: 'Brunei' },
+                { code: 'BG', name: 'Bulgaria' },
+                { code: 'BF', name: 'Burkina Faso' },
+                { code: 'BI', name: 'Burundi' },
+                { code: 'KH', name: 'Cambodia' },
+                { code: 'CM', name: 'Cameroon' },
+                { code: 'CA', name: 'Canada' },
+                { code: 'CV', name: 'Cape Verde' },
+                { code: 'CF', name: 'Central African Republic' },
+                { code: 'TD', name: 'Chad' },
+                { code: 'CL', name: 'Chile' },
+                { code: 'CN', name: 'China' },
+                { code: 'CO', name: 'Colombia' },
+                { code: 'KM', name: 'Comoros' },
+                { code: 'CG', name: 'Congo' },
+                { code: 'CR', name: 'Costa Rica' },
+                { code: 'HR', name: 'Croatia' },
+                { code: 'CU', name: 'Cuba' },
+                { code: 'CY', name: 'Cyprus' },
+                { code: 'CZ', name: 'Czech Republic' },
+                { code: 'DK', name: 'Denmark' },
+                { code: 'DJ', name: 'Djibouti' },
+                { code: 'DM', name: 'Dominica' },
+                { code: 'DO', name: 'Dominican Republic' },
+                { code: 'EC', name: 'Ecuador' },
+                { code: 'EG', name: 'Egypt' },
+                { code: 'SV', name: 'El Salvador' },
+                { code: 'GQ', name: 'Equatorial Guinea' },
+                { code: 'ER', name: 'Eritrea' },
+                { code: 'EE', name: 'Estonia' },
+                { code: 'ET', name: 'Ethiopia' },
+                { code: 'FJ', name: 'Fiji' },
+                { code: 'FI', name: 'Finland' },
+                { code: 'FR', name: 'France' },
+                { code: 'GA', name: 'Gabon' },
+                { code: 'GM', name: 'Gambia' },
+                { code: 'GE', name: 'Georgia' },
+                { code: 'DE', name: 'Germany' },
+                { code: 'GH', name: 'Ghana' },
+                { code: 'GR', name: 'Greece' },
+                { code: 'GD', name: 'Grenada' },
+                { code: 'GT', name: 'Guatemala' },
+                { code: 'GN', name: 'Guinea' },
+                { code: 'GW', name: 'Guinea-Bissau' },
+                { code: 'GY', name: 'Guyana' },
+                { code: 'HT', name: 'Haiti' },
+                { code: 'HN', name: 'Honduras' },
+                { code: 'HU', name: 'Hungary' },
+                { code: 'IS', name: 'Iceland' },
+                { code: 'IN', name: 'India' },
+                { code: 'ID', name: 'Indonesia' },
+                { code: 'IR', name: 'Iran' },
+                { code: 'IQ', name: 'Iraq' },
+                { code: 'IE', name: 'Ireland' },
+                { code: 'IL', name: 'Israel' },
+                { code: 'IT', name: 'Italy' },
+                { code: 'JM', name: 'Jamaica' },
+                { code: 'JP', name: 'Japan' },
+                { code: 'JO', name: 'Jordan' },
+                { code: 'KZ', name: 'Kazakhstan' },
+                { code: 'KE', name: 'Kenya' },
+                { code: 'KI', name: 'Kiribati' },
+                { code: 'KP', name: 'North Korea' },
+                { code: 'KR', name: 'South Korea' },
+                { code: 'KW', name: 'Kuwait' },
+                { code: 'KG', name: 'Kyrgyzstan' },
+                { code: 'LA', name: 'Laos' },
+                { code: 'LV', name: 'Latvia' },
+                { code: 'LB', name: 'Lebanon' },
+                { code: 'LS', name: 'Lesotho' },
+                { code: 'LR', name: 'Liberia' },
+                { code: 'LY', name: 'Libya' },
+                { code: 'LI', name: 'Liechtenstein' },
+                { code: 'LT', name: 'Lithuania' },
+                { code: 'LU', name: 'Luxembourg' },
+                { code: 'MK', name: 'North Macedonia' },
+                { code: 'MG', name: 'Madagascar' },
+                { code: 'MW', name: 'Malawi' },
+                { code: 'MY', name: 'Malaysia' },
+                { code: 'MV', name: 'Maldives' },
+                { code: 'ML', name: 'Mali' },
+                { code: 'MT', name: 'Malta' },
+                { code: 'MH', name: 'Marshall Islands' },
+                { code: 'MR', name: 'Mauritania' },
+                { code: 'MU', name: 'Mauritius' },
+                { code: 'MX', name: 'Mexico' },
+                { code: 'FM', name: 'Micronesia' },
+                { code: 'MD', name: 'Moldova' },
+                { code: 'MC', name: 'Monaco' },
+                { code: 'MN', name: 'Mongolia' },
+                { code: 'ME', name: 'Montenegro' },
+                { code: 'MA', name: 'Morocco' },
+                { code: 'MZ', name: 'Mozambique' },
+                { code: 'MM', name: 'Myanmar' },
+                { code: 'NA', name: 'Namibia' },
+                { code: 'NR', name: 'Nauru' },
+                { code: 'NP', name: 'Nepal' },
+                { code: 'NL', name: 'Netherlands' },
+                { code: 'NZ', name: 'New Zealand' },
+                { code: 'NI', name: 'Nicaragua' },
+                { code: 'NE', name: 'Niger' },
+                { code: 'NG', name: 'Nigeria' },
+                { code: 'NO', name: 'Norway' },
+                { code: 'OM', name: 'Oman' },
+                { code: 'PK', name: 'Pakistan' },
+                { code: 'PW', name: 'Palau' },
+                { code: 'PA', name: 'Panama' },
+                { code: 'PG', name: 'Papua New Guinea' },
+                { code: 'PY', name: 'Paraguay' },
+                { code: 'PE', name: 'Peru' },
+                { code: 'PH', name: 'Philippines' },
+                { code: 'PL', name: 'Poland' },
+                { code: 'PT', name: 'Portugal' },
+                { code: 'QA', name: 'Qatar' },
+                { code: 'RO', name: 'Romania' },
+                { code: 'RU', name: 'Russia' },
+                { code: 'RW', name: 'Rwanda' },
+                { code: 'KN', name: 'Saint Kitts and Nevis' },
+                { code: 'LC', name: 'Saint Lucia' },
+                { code: 'VC', name: 'Saint Vincent and the Grenadines' },
+                { code: 'WS', name: 'Samoa' },
+                { code: 'SM', name: 'San Marino' },
+                { code: 'ST', name: 'Sao Tome and Principe' },
+                { code: 'SA', name: 'Saudi Arabia' },
+                { code: 'SN', name: 'Senegal' },
+                { code: 'RS', name: 'Serbia' },
+                { code: 'SC', name: 'Seychelles' },
+                { code: 'SL', name: 'Sierra Leone' },
+                { code: 'SG', name: 'Singapore' },
+                { code: 'SK', name: 'Slovakia' },
+                { code: 'SI', name: 'Slovenia' },
+                { code: 'SB', name: 'Solomon Islands' },
+                { code: 'SO', name: 'Somalia' },
+                { code: 'ZA', name: 'South Africa' },
+                { code: 'SS', name: 'South Sudan' },
+                { code: 'ES', name: 'Spain' },
+                { code: 'LK', name: 'Sri Lanka' },
+                { code: 'SD', name: 'Sudan' },
+                { code: 'SR', name: 'Suriname' },
+                { code: 'SE', name: 'Sweden' },
+                { code: 'CH', name: 'Switzerland' },
+                { code: 'SY', name: 'Syria' },
+                { code: 'TW', name: 'Taiwan' },
+                { code: 'TJ', name: 'Tajikistan' },
+                { code: 'TZ', name: 'Tanzania' },
+                { code: 'TH', name: 'Thailand' },
+                { code: 'TL', name: 'Timor-Leste' },
+                { code: 'TG', name: 'Togo' },
+                { code: 'TO', name: 'Tonga' },
+                { code: 'TT', name: 'Trinidad and Tobago' },
+                { code: 'TN', name: 'Tunisia' },
+                { code: 'TR', name: 'Turkey' },
+                { code: 'TM', name: 'Turkmenistan' },
+                { code: 'TV', name: 'Tuvalu' },
+                { code: 'UG', name: 'Uganda' },
+                { code: 'UA', name: 'Ukraine' },
+                { code: 'AE', name: 'United Arab Emirates' },
+                { code: 'GB', name: 'United Kingdom' },
+                { code: 'US', name: 'United States' },
+                { code: 'UY', name: 'Uruguay' },
+                { code: 'UZ', name: 'Uzbekistan' },
+                { code: 'VU', name: 'Vanuatu' },
+                { code: 'VA', name: 'Vatican City' },
+                { code: 'VE', name: 'Venezuela' },
+                { code: 'VN', name: 'Vietnam' },
+                { code: 'YE', name: 'Yemen' },
+                { code: 'ZM', name: 'Zambia' },
+                { code: 'ZW', name: 'Zimbabwe' }
+            ];
+
+            // Initialize Select2
+            $('#nationality').select2({
+                theme: 'bootstrap-5',
+                data: countries.map(country => ({
+                    id: country.name,
+                    text: country.name,
+                    code: country.code
+                })),
+                templateResult: formatCountry,
+                templateSelection: formatCountry,
+                placeholder: 'Select a country',
+                allowClear: true
+            });
+
+            // Format country option with flag
+            function formatCountry(country) {
+                if (!country.id) return country.text;
+                return $(`<span class="country-option">
+                            <span class="fi fi-${country.code.toLowerCase()}"></span>
+                            <span>${country.text}</span>
+                         </span>`);
+            }
+        });
+    </script>
+}

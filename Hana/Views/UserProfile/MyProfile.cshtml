@@ -256,31 +256,135 @@
                         <p class="lead">@Model.Bio</p>
                     </div>
 
-                    <div class="combined-section mt-3">
-                        <h5 class="text-primary"><i class="fas fa-comment mr-2"></i> Send a Message & Attach Social Media</h5>
-                        <form method="post" action="/UserProfile/SendMessageAndAttachSocialMedia">
-                            <div class="form-group">
-                                <textarea name="Message" class="form-control" rows="3" placeholder="Type your message here..." required></textarea>
-                            </div>
-                            <div class="form-row d-flex align-items-end">
-                                <div class="col-md-6">
-                                    <label for="socialMedia">Choose Social Media:</label>
-                                    <select name="SocialMedia" id="socialMedia" class="form-control" required>
-                                        <option value="">Select...</option>
-                                        <option value="Instagram">Instagram</option>
-                                        <option value="Facebook">Facebook</option>
-                                        <option value="Twitter">Twitter</option>
-                                        <option value="LinkedIn">LinkedIn</option>
-                                    </select>
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                            @TempData["Success"]
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }
+
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                            @TempData["Error"]
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    }
+
+                    @if (User.Identity.IsAuthenticated && User.Identity.Name != Model.User.UserName)
+                    {
+                        <!-- Show message form to everyone except profile owner -->
+                        <div class="combined-section mt-3">
+                            <h5 class="text-primary"><i class="fas fa-comment mr-2"></i> Send a Message & Attach Social Media</h5>
+                            <form method="post" action="@Url.Action("SendMessage", "Message")" class="needs-validation" novalidate>
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="receiverId" value="@Model.UserId" />
+                                <div class="form-group">
+                                    <textarea name="message" class="form-control" rows="3" placeholder="Type your message here..." required></textarea>
+                                    <div class="invalid-feedback">
+                                        Please enter a message.
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="account">Account Link:</label>
-                                    <input type="text" name="Account" class="form-control" placeholder="Enter your account link" required />
+                                <div class="form-row d-flex align-items-end">
+                                    <div class="col-md-6">
+                                        <label for="socialMediaPlatform">Choose Social Media:</label>
+                                        <select name="socialMediaPlatform" id="socialMediaPlatform" class="form-control" required>
+                                            <option value="">Select...</option>
+                                            <option value="Instagram">Instagram</option>
+                                            <option value="Facebook">Facebook</option>
+                                            <option value="Twitter">Twitter</option>
+                                            <option value="LinkedIn">LinkedIn</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            Please select a social media platform.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="socialMediaLink">Account Link:</label>
+                                        <input type="text" name="socialMediaLink" class="form-control" placeholder="Enter your account link" required />
+                                        <div class="invalid-feedback">
+                                            Please enter your social media link.
+                                        </div>
+                                    </div>
                                 </div>
+                                <button type="submit" class="btn btn-primary mt-3">Send Message & Attach</button>
+                            </form>
+                        </div>
+                    }
+
+                    @if (User.Identity.IsAuthenticated && User.Identity.Name == Model.User.UserName)
+                    {
+                        <!-- Show received messages only to profile owner -->
+                        <div class="messages-section mt-4">
+                            <h5 class="text-primary"><i class="fas fa-envelope mr-2"></i> Messages Received</h5>
+                            <div id="messagesContainer">
+                                <!-- Messages will be loaded here -->
                             </div>
-                            <button type="submit" class="btn btn-primary mt-3">Send Message & Attach</button>
-                        </form>
-                    </div>
+                            <button onclick="loadMessages()" class="btn btn-primary mt-2">Load Messages</button>
+                        </div>
+
+                        <!-- Add JavaScript to load messages -->
+                        <script>
+                            async function loadMessages() {
+                                try {
+                                    const response = await fetch('@Url.Action("GetMyMessages", "Message")');
+                                    if (response.ok) {
+                                        const messages = await response.json();
+                                        const container = document.getElementById('messagesContainer');
+                                        container.innerHTML = ''; // Clear existing messages
+                                        
+                                        if (messages.length === 0) {
+                                            container.innerHTML = '<div class="alert alert-info">No messages received yet.</div>';
+                                            return;
+                                        }
+                                        
+                                        messages.forEach(msg => {
+                                            const messageDiv = document.createElement('div');
+                                            messageDiv.className = 'card mb-3';
+                                            messageDiv.innerHTML = `
+                                                <div class="card-body">
+                                                    <h6 class="card-subtitle mb-2 text-muted">From: ${msg.sender.userName}</h6>
+                                                    <p class="card-text">${msg.content}</p>
+                                                    <div class="social-media-info">
+                                                        <strong>${msg.socialMediaPlatform}:</strong> 
+                                                        <a href="${msg.socialMediaLink}" target="_blank">${msg.socialMediaLink}</a>
+                                                    </div>
+                                                    <small class="text-muted">Sent: ${new Date(msg.createdAt).toLocaleString()}</small>
+                                                </div>
+                                            `;
+                                            container.appendChild(messageDiv);
+                                        });
+                                    }
+                                } catch (error) {
+                                    console.error('Error loading messages:', error);
+                                    const container = document.getElementById('messagesContainer');
+                                    container.innerHTML = '<div class="alert alert-danger">Error loading messages. Please try again.</div>';
+                                }
+                            }
+
+                            // Add form validation
+                            (function() {
+                                'use strict';
+                                window.addEventListener('load', function() {
+                                    var forms = document.getElementsByClassName('needs-validation');
+                                    var validation = Array.prototype.filter.call(forms, function(form) {
+                                        form.addEventListener('submit', function(event) {
+                                            if (form.checkValidity() === false) {
+                                                event.preventDefault();
+                                                event.stopPropagation();
+                                            }
+                                            form.classList.add('was-validated');
+                                        }, false);
+                                    });
+                                }, false);
+                            })();
+                        </script>
+                    }
 
                     @if (!string.IsNullOrEmpty(Model.InstagramAccount))
                     {
@@ -467,4 +571,5 @@
             }
         });
     </script>
+}
 }
