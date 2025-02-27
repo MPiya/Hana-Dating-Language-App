@@ -12063,6 +12063,88 @@
       ]
     },
     {
+      "Route": "images/profiles/6ab7f5fd-c54f-40ce-a7c4-ce0265a2a335.jpg",
+      "AssetFile": "images/profiles/6ab7f5fd-c54f-40ce-a7c4-ce0265a2a335.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "52210"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"csb24RQrFrnO/mfAV8nDLJvwRSk1OIvsM2MhqvYJBMs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Feb 2025 20:49:02 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-csb24RQrFrnO/mfAV8nDLJvwRSk1OIvsM2MhqvYJBMs="
+        }
+      ]
+    },
+    {
+      "Route": "images/profiles/6ab7f5fd-c54f-40ce-a7c4-ce0265a2a335.q9rq1z6v0p.jpg",
+      "AssetFile": "images/profiles/6ab7f5fd-c54f-40ce-a7c4-ce0265a2a335.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "52210"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"csb24RQrFrnO/mfAV8nDLJvwRSk1OIvsM2MhqvYJBMs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Feb 2025 20:49:02 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "q9rq1z6v0p"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-csb24RQrFrnO/mfAV8nDLJvwRSk1OIvsM2MhqvYJBMs="
+        },
+        {
+          "Name": "label",
+          "Value": "images/profiles/6ab7f5fd-c54f-40ce-a7c4-ce0265a2a335.jpg"
+        }
+      ]
+    },
+    {
       "Route": "images/profiles/c8c5917c-7a07-44b4-a202-98c563cb3833.jpg",
       "AssetFile": "images/profiles/c8c5917c-7a07-44b4-a202-98c563cb3833.jpg",
       "Selectors": [],
