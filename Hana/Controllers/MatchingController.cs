@@ -24,7 +24,7 @@ namespace Hana.Controllers
             return View("SearchUsers", defaultUsers);
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult SearchUsersView(SearchCriteria criteria)
         {
             var matchedUsers = _context.UserProfiles.AsQueryable();
