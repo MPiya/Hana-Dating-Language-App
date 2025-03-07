@@ -2124,6 +2124,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\5784b02b-29f7-44ca-b9a6-bba91637a230_cropped_cropped.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\5cc05d89-1ed0-480c-8129-9d040c7fed77.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Hana</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Hana</BasePath>
+      <RelativePath>images/profiles/5cc05d89-1ed0-480c-8129-9d040c7fed77.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>nk4sh53j9n</Fingerprint>
+      <Integrity>2SSy2mQMPM/AnS92j/+sNr5GVqfsCSpXrFDT0OuP190=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\5cc05d89-1ed0-480c-8129-9d040c7fed77.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\68410db4-9ab0-4aee-bba1-ea6474c56f67.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>Hana</SourceId>
@@ -2159,6 +2177,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\6ab7f5fd-c54f-40ce-a7c4-ce0265a2a335.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\71a0177a-9e2f-424a-a8ce-4967ec48bbc3.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Hana</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Hana</BasePath>
+      <RelativePath>images/profiles/71a0177a-9e2f-424a-a8ce-4967ec48bbc3.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>4vn17dhxzt</Fingerprint>
+      <Integrity>EDpcldzkWilP/wpZnji4bHo0xcnQPIUXZDLdvXbJx9k=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\71a0177a-9e2f-424a-a8ce-4967ec48bbc3.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profiles\c8c5917c-7a07-44b4-a202-98c563cb3833.jpg'))">
       <SourceType>Package</SourceType>

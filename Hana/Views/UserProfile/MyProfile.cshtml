@@ -351,8 +351,13 @@
                                                     <h6 class="card-subtitle mb-2 text-muted">From: ${msg.sender.userName}</h6>
                                                     <p class="card-text">${msg.content}</p>
                                                     <div class="social-media-info">
-                                                        <strong>${msg.socialMediaPlatform}:</strong> 
-                                                        <a href="${msg.socialMediaLink}" target="_blank">${msg.socialMediaLink}</a>
+                                                        <strong>${msg.socialMediaPlatform}:</strong>
+                                                        <a href="${msg.socialMediaPlatform.toLowerCase() === 'instagram' ?
+                                                        'https://www.instagram.com/' + msg.socialMediaLink :
+                                                        msg.socialMediaLink}"
+                                                       target="_blank">
+                                                        ${msg.socialMediaLink}
+                                                    </a>
                                                     </div>
                                                     <small class="text-muted">Sent: ${new Date(msg.createdAt).toLocaleString()}</small>
                                                 </div>

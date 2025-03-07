@@ -1,12 +1,52 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "F:\\repos\\Hana-Dating-Language-App\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|f:\\repos\\hana-dating-language-app\\hana\\hana.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|solutionrelative:hana\\hana.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|f:\\repos\\hana-dating-language-app\\hana\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|solutionrelative:hana\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Hana",
+              "DocumentMoniker": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Hana.csproj",
+              "RelativeDocumentMoniker": "Hana\\Hana.csproj",
+              "ToolTip": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Hana.csproj",
+              "RelativeToolTip": "Hana\\Hana.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-04T00:37:30.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Program.cs",
+              "RelativeDocumentMoniker": "Hana\\Program.cs",
+              "ToolTip": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Program.cs",
+              "RelativeToolTip": "Hana\\Program.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACYAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T00:37:15.088Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

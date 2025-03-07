@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "F:\\repos\\Hana-Dating-Language-App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|f:\\repos\\hana-dating-language-app\\hana\\views\\matching\\displaymatchedusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|solutionrelative:hana\\views\\matching\\displaymatchedusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|f:\\repos\\hana-dating-language-app\\hana\\controllers\\oldmatchingcontroller1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|solutionrelative:hana\\controllers\\oldmatchingcontroller1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|f:\\repos\\hana-dating-language-app\\hana\\controllers\\matchingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|solutionrelative:hana\\controllers\\matchingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|f:\\repos\\hana-dating-language-app\\hana\\controllers\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|solutionrelative:hana\\controllers\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|f:\\repos\\hana-dating-language-app\\hana\\controllers\\userprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|solutionrelative:hana\\controllers\\userprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|f:\\repos\\hana-dating-language-app\\hana\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|solutionrelative:hana\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|f:\\repos\\hana-dating-language-app\\hana\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|solutionrelative:hana\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|f:\\repos\\hana-dating-language-app\\hana\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|solutionrelative:hana\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|f:\\repos\\hana-dating-language-app\\hana\\hana.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{CAA55883-54EF-4C95-B05E-6C1B679A0A25}|Hana\\Hana.csproj|solutionrelative:hana\\hana.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +26,57 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MatchingController.cs",
-              "DocumentMoniker": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Controllers\\MatchingController.cs",
-              "RelativeDocumentMoniker": "Hana\\Controllers\\MatchingController.cs",
-              "ToolTip": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Controllers\\MatchingController.cs",
-              "RelativeToolTip": "Hana\\Controllers\\MatchingController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T22:09:19.437Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DisplayMatchedUsers.cshtml",
-              "DocumentMoniker": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Views\\Matching\\DisplayMatchedUsers.cshtml",
-              "RelativeDocumentMoniker": "Hana\\Views\\Matching\\DisplayMatchedUsers.cshtml",
-              "ToolTip": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Views\\Matching\\DisplayMatchedUsers.cshtml",
-              "RelativeToolTip": "Hana\\Views\\Matching\\DisplayMatchedUsers.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAEAAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T22:09:02.999Z",
+              "Title": "OldMatchingController1.cs",
+              "DocumentMoniker": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Controllers\\OldMatchingController1.cs",
+              "RelativeDocumentMoniker": "Hana\\Controllers\\OldMatchingController1.cs",
+              "ToolTip": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Controllers\\OldMatchingController1.cs",
+              "RelativeToolTip": "Hana\\Controllers\\OldMatchingController1.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T21:22:16.257Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserProfileController.cs",
-              "DocumentMoniker": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Controllers\\UserProfileController.cs",
-              "RelativeDocumentMoniker": "Hana\\Controllers\\UserProfileController.cs",
-              "ToolTip": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Controllers\\UserProfileController.cs",
-              "RelativeToolTip": "Hana\\Controllers\\UserProfileController.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "MessageController.cs",
+              "DocumentMoniker": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Controllers\\MessageController.cs",
+              "RelativeDocumentMoniker": "Hana\\Controllers\\MessageController.cs",
+              "ToolTip": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Controllers\\MessageController.cs",
+              "RelativeToolTip": "Hana\\Controllers\\MessageController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T22:08:57.524Z",
+              "WhenOpened": "2025-03-07T21:22:12.98Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Hana\\Controllers\\HomeController.cs",
-              "ToolTip": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Hana\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T22:08:56.033Z",
+              "Title": "Hana",
+              "DocumentMoniker": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Hana.csproj",
+              "RelativeDocumentMoniker": "Hana\\Hana.csproj",
+              "ToolTip": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Hana.csproj",
+              "RelativeToolTip": "Hana\\Hana.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-04T00:37:30.193Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Hana\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Hana\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACsAAAB1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-27T22:08:38.326Z",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Program.cs",
+              "RelativeDocumentMoniker": "Hana\\Program.cs",
+              "ToolTip": "F:\\repos\\Hana-Dating-Language-App\\Hana\\Program.cs",
+              "RelativeToolTip": "Hana\\Program.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T00:37:15.088Z",
               "EditorCaption": ""
             }
           ]
